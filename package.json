@@ -1,0 +1,19 @@
+{
+  "name": "clementbenezech_3_04042021",
+  "version": "1.0.0",
+  "description": "In this project, this is used to declare sass and prefixer scripts",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClementBenezech/ClementBenezech_03_04042021.git"
+  },
+  "author": "Clement Benezech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClementBenezech/ClementBenezech_03_04042021/issues"
+  },
+  "homepage": "https://github.com/ClementBenezech/ClementBenezech_03_04042021#readme"
+}

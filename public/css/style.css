@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../../public/font/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(../../public/font/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url(../../public/font/Roboto-Thin.ttf);
+}
+@font-face {
+  font-family: "Shrikhand";
+  src: url(../../public/font/Shrikhand-Regular.ttf);
+}
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 4vw;
+}
+
+h1 {
+  font-family: "Shrikhand", sans-serif;
+  font-weight: 900;
+  font-size: 10vw;
+  margin: 0px;
+}
+
+.btn-explore {
+  background: linear-gradient(180deg, #ff79da, #9356dc);
+  padding: 4vw 0px;
+  /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  font-size: 4vw;
+  border-radius: 8vw;
+  color: white;
+}
+
+.container-locale {
+  text-align: center;
+  width: 100%;
+  /*Linking the locale-container background color with the main background color, given the fact that it is a different shade of the same color
+  (well, if you consider grey to be a color) If we were to change the value of background color to adopt a new theme, 
+  only one value would have to be changed in the _variable.scss file. Alternatively, I could also have created another color derived from this one 
+  in the _variables.scss file, something like $locale-background color : darken(background-color-primary, 10%).
+  EDIT: Rather than trying to implement an inset box-shadow css trick to have the top shadow, I defined the background of the section as a linear gradient
+  The gradient starts back on top (default, adding a 'deg' value could statrt it from the side or bottom -note for later-), then after 10% of the height,
+  it displays the base background color, still darkened to adresss the specific looks of this box */
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, #e0e0e0 10%);
+}
+.container-locale h2 {
+  margin: 4vw 0px;
+  /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  font-size: 4vw;
+}
+
+.container-explore {
+  text-align: center;
+  background-color: #f9f9f9;
+}
+.container-explore h2 {
+  font-size: 6vw;
+  font-family: "Roboto-Bold";
+}
+.container-explore p {
+  font-size: 4vw;
+  font-family: "Roboto-Thin";
+}
+
+/*# sourceMappingURL=style.css.map */

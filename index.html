@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>OhMyFood - Restaurants d'exception</title>
+        <meta charset="utf-8"> <!--preconisation W3C-->
+        <meta name="author" content="Clement Benezech">
+        <meta name="description" content="This page is a transcription of a mobile oriented restaurant booking website design It aims at W3C compliance, code quality, and responsiveness. Displays some native CSS animations. Styling is written in SASS using SCSS syntax, then compiled into CSS">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="public/css/style.css">
+        <link rel="icon" type="image/svg+xml" href="public/images/logo/ohmyfood@2x.svg">
+        <script src="https://kit.fontawesome.com/4966b9f0e9.js" crossorigin="anonymous"></script>
+        <!--To do:OpenGraphData  Image and description-->
+    </head>
+
+    <body>
+        <header class="header">
+            <h1>ohmyfood</h1>
+        </header>
+
+        <section class="container-locale">   
+            <h2>Paris, Belleville</h2>
+        </section>
+
+        <section class="container-explore">     
+            <h2>Réservez le menu qui vous convient<h2>
+            <p>Découvrez des Restaurants d'exception, selectionnés par nos soins</p>
+            <div class="btn-explore">Explorer nos restaurants<div>
+        </section>
+
+        <section class="container-how-to-use">
+            <h2>Fonctionnement</h2>
+            <div class='how-to-use__step'>Choisissez un restaurant</div>
+            <div class='how-to-use__step'>Composez votre menu</div>
+            <div class='how-to-use__step'>Degustez au restaurant</div>
+        </section>
+
+        <main class="result-list">
+            <h2>Restaurants</h2>
+            <article class="result-list__result-container">
+                <div class="result-list__new-label"></div>
+                <img/>
+                <div class="result-list__result-labels-container">
+                    <div class="result-list__result-name">La palette du gout</div>
+                    <div class="result-list__result-location">Ménilmontant</div>
+                    <div class="result-list__favorite">"coeur"</div>
+                </div>
+            </article>
+            <article class="result-list__result-container">
+                <div class="result-list__new-label"></div>
+                <img class="result-list__result-img"/>
+                <div class="result-list__result-name">La note enchantée</div>
+                <div class="result-list__result-location"></div>
+                <div class="result-list__favorite"></div>
+            </article>
+            <article class="result-list__result-container">
+                <img class="result-list__result-img"/>
+                <div class="result-list__result-name">A la Française</div>
+                <div class="result-list__result-location"></div>
+                <div class="result-list__favorite"></div>
+            </article>
+            <article class="result-list__result-container">
+                <img class="result-list__result-img"/>
+                <div class="result-list__result-name">Le délice des sens</div>
+                <div class="result-list__result-location"></div>
+                <div class="result-list__favorite"></div>
+            </article>
+        </main>
+
+        <footer class="footer"> <!-- Contains coporate, legal, and contact links -->
+            <h2>ohmyfood</h2>
+            <div class="footer__links">
+                <p><a href="#">Proposer un restaurant</a></p>
+                <p><a href="#">Devenir partenaire</a></p>
+                <p><a href="#">Mentions légales</a></p>
+                <p><a href="#">Contact</a></p>
+            </div>
+        </footer>
+    </body>
+</html>
