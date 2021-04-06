@@ -1,0 +1,19 @@
+.footer {
+  background-color: darken($background-color-primary, 80%);
+  padding: 2 * $font-size_regular;
+  width: 100%;
+  * {
+    color: white;
+  }
+  h2 {
+    font-size: 1.2 * $font-size-regular;
+  }
+  &__link-container {
+    display: flex;
+    width: 100%;
+    padding-top: 0.8 * $font-size-regular;
+  }
+  i {
+    width: 2 * $font-size-regular;
+  }
+}

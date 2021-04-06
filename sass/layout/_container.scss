@@ -1,6 +1,5 @@
 .container-locale {
-  text-align: center;
-  width: 100%;
+  @include display-flex-row-center;
   /*Linking the locale-container background color with the main background color, given the fact that it is a different shade of the same color
   (well, if you consider grey to be a color) If we were to change the value of background color to adopt a new theme, 
   only one value would have to be changed in the _variable.scss file. Alternatively, I could also have created another color derived from this one 
@@ -10,21 +9,130 @@
   it displays the base background color, still darkened to adresss the specific looks of this box */
   background: linear-gradient(
     rgba(0, 0, 0, 0.5) 0%,
-    darken($background-color-primary, 10%) 10%
+    darken($background-color-primary, 10%) 5%
   );
-  h2 {
-    margin: $font-size-regular 0px; /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  h2,
+  i {
+    margin: $font-size-regular $font-size-regular $font-size-regular 0px; /*this will ensure vertical alignment of the h2 title in the middle of the container*/
     font-size: $font-size-regular;
   }
 }
 
 .container-explore {
-  text-align: center;
+  @include display-flex-column-center;
+  @include section-padding-standard;
   background-color: $background-color-primary;
   h2 {
-    font-size: 6vw;
+    font-size: 1.5 * $font-size-regular;
     font-family: "Roboto-Bold";
   }
+  p {
+    font-size: $font-size-regular;
+    font-family: "Roboto-Thin";
+  }
+}
+
+.container-how-to-use {
+  @include display-flex-column-center;
+  @include section-padding-standard;
+  width: 100%;
+  &__step-container {
+    @include display-flex-row-center;
+    width: 95%;
+    /*padding: $font-size-regular * 2 $font-size-regular $font-size-regular * 2 -10vw;*/
+    margin-top: $font-size-regular * 2;
+    border-radius: $font-size-regular;
+  }
+  &__step-number {
+    flex: 1.5 * $font-size-regular;
+    margin: auto;
+    height: 1.5 * $font-size-regular;
+    line-height: 1.5 * $font-size-regular;
+    background-color: $color-primary;
+    border-radius: 1 * $font-size-regular;
+    z-index: 99;
+    color: white;
+  }
+  &__step-content {
+    flex: 1fr;
+    background-color: $background-color-primary;
+    margin-left: -0.75 * $font-size-regular;
+    border-radius: $font-size-regular;
+    color: darken($background-color-primary, 30%);
+    box-shadow: 0 0.5vw 0.5vw darken($background-color-primary, 30%);
+    @include display-flex-row-start-padding-left;
+    &:hover {
+      background-color: lighten($color-secondary, 20%);
+      color: $color-primary;
+      i {
+        color: $color-primary;
+      }
+    }
+    p {
+      color: black;
+      font-weight: bold;
+    }
+  }
+  h2 {
+    @include h2-flex-start-bold;
+  }
+
+  i {
+    margin: $font-size-regular $font-size-regular $font-size-regular 0px; /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+    font-size: $font-size-regular;
+    color: darken($background-color-primary, 30%);
+  }
+}
+
+.container-result-list {
+  @include display-flex-column-center;
+  @include section-padding-standard;
+  width: 100%;
+  background-color: $background-color-primary;
+  &__result-container {
+    position: relative; /*to enable absolute positionning of the favorite and new elements*/
+    display: flex;
+    flex-direction: column;
+    margin: $font-size-regular;
+  }
+  &__result-img {
+    object-fit: cover;
+    width: 90vw;
+    height: 50vw;
+    border-radius: 2 * $font-size-regular 2 * $font-size-regular 0px 0px;
+  }
+  &__result-labels-container {
+    width: 90vw;
+    height: 20vw;
+    border-radius: 0px 0px 2 * $font-size-regular 2 * $font-size-regular;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-left: $font-size-regular;
+    padding-top: $font-size-regular;
+    background-color: white;
+    box-shadow: 0 0.5vw 0.5vw darken($background-color-primary, 30%);
+  }
+  &__result-name {
+    font-weight: bold;
+    height: 25%;
+    margin-bottom: 0.5 * $font-size-regular;
+  }
+  &__result-location {
+    height: 25%;
+  }
+  &__favorite {
+    position: absolute;
+    top: 57vw;
+    right: 5vw;
+    z-index: 99;
+    color: black;
+    font-size: 1.5 * $font-size-regular;
+  }
+  h2 {
+    @include h2-flex-start-bold;
+  }
+
   p {
     font-size: $font-size-regular;
     font-family: "Roboto-Thin";

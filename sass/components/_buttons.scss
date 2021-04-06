@@ -1,7 +1,9 @@
 .btn-explore {
   background: linear-gradient(180deg, $color-secondary, $color-primary);
-  padding: $font-size-regular 0px; /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  padding: $font-size-regular; /*this will ensure vertical alignment of the h2 title in the middle of the container, and also harmonious side padding*/
   font-size: $font-size-regular;
   border-radius: $font-size-regular * 2;
   color: $color-button-text;
+  margin-top: $font-size-regular;
+  width: max-content;
 }

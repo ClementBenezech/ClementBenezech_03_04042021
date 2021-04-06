@@ -19,6 +19,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -27,24 +42,32 @@ body {
   font-size: 4vw;
 }
 
-h1 {
+h1,
+footer > h2 {
   font-family: "Shrikhand", sans-serif;
   font-weight: 900;
   font-size: 10vw;
   margin: 0px;
 }
 
+h2 {
+  margin: 0px;
+}
+
 .btn-explore {
   background: linear-gradient(180deg, #ff79da, #9356dc);
-  padding: 4vw 0px;
-  /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  padding: 4vw;
+  /*this will ensure vertical alignment of the h2 title in the middle of the container, and also harmonious side padding*/
   font-size: 4vw;
   border-radius: 8vw;
   color: white;
+  margin-top: 4vw;
+  width: max-content;
 }
 
 .container-locale {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   width: 100%;
   /*Linking the locale-container background color with the main background color, given the fact that it is a different shade of the same color
   (well, if you consider grey to be a color) If we were to change the value of background color to adopt a new theme, 
@@ -53,16 +76,21 @@ h1 {
   EDIT: Rather than trying to implement an inset box-shadow css trick to have the top shadow, I defined the background of the section as a linear gradient
   The gradient starts back on top (default, adding a 'deg' value could statrt it from the side or bottom -note for later-), then after 10% of the height,
   it displays the base background color, still darkened to adresss the specific looks of this box */
-  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, #e0e0e0 10%);
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, #e0e0e0 5%);
 }
-.container-locale h2 {
-  margin: 4vw 0px;
+.container-locale h2,
+.container-locale i {
+  margin: 4vw 4vw 4vw 0px;
   /*this will ensure vertical alignment of the h2 title in the middle of the container*/
   font-size: 4vw;
 }
 
 .container-explore {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  padding: 8vw 8vw 8vw 8vw;
   background-color: #f9f9f9;
 }
 .container-explore h2 {
@@ -72,6 +100,148 @@ h1 {
 .container-explore p {
   font-size: 4vw;
   font-family: "Roboto-Thin";
+}
+
+.container-how-to-use {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 8vw 8vw 8vw 8vw;
+  width: 100%;
+}
+.container-how-to-use__step-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  width: 95%;
+  /*padding: $font-size-regular * 2 $font-size-regular $font-size-regular * 2 -10vw;*/
+  margin-top: 8vw;
+  border-radius: 4vw;
+}
+.container-how-to-use__step-number {
+  flex: 6vw;
+  margin: auto;
+  height: 6vw;
+  line-height: 6vw;
+  background-color: #9356dc;
+  border-radius: 4vw;
+  z-index: 99;
+  color: white;
+}
+.container-how-to-use__step-content {
+  flex: 1fr;
+  background-color: #f9f9f9;
+  margin-left: -3vw;
+  border-radius: 4vw;
+  color: #adadad;
+  box-shadow: 0 0.5vw 0.5vw #adadad;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  padding-left: 8vw;
+}
+.container-how-to-use__step-content:hover {
+  background-color: #ffdff6;
+  color: #9356dc;
+}
+.container-how-to-use__step-content:hover i {
+  color: #9356dc;
+}
+.container-how-to-use__step-content p {
+  color: black;
+  font-weight: bold;
+}
+.container-how-to-use h2 {
+  display: flex;
+  align-self: flex-start;
+  font-family: "Roboto-Bold";
+}
+.container-how-to-use i {
+  margin: 4vw 4vw 4vw 0px;
+  /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  font-size: 4vw;
+  color: #adadad;
+}
+
+.container-result-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 8vw 8vw 8vw 8vw;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+.container-result-list__result-container {
+  position: relative;
+  /*to enable absolute positionning of the favorite and new elements*/
+  display: flex;
+  flex-direction: column;
+  margin: 4vw;
+}
+.container-result-list__result-img {
+  object-fit: cover;
+  width: 90vw;
+  height: 50vw;
+  border-radius: 8vw 8vw 0px 0px;
+}
+.container-result-list__result-labels-container {
+  width: 90vw;
+  height: 20vw;
+  border-radius: 0px 0px 8vw 8vw;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding-left: 4vw;
+  padding-top: 4vw;
+  background-color: white;
+  box-shadow: 0 0.5vw 0.5vw #adadad;
+}
+.container-result-list__result-name {
+  font-weight: bold;
+  height: 25%;
+  margin-bottom: 2vw;
+}
+.container-result-list__result-location {
+  height: 25%;
+}
+.container-result-list__favorite {
+  position: absolute;
+  top: 57vw;
+  right: 5vw;
+  z-index: 99;
+  color: black;
+  font-size: 6vw;
+}
+.container-result-list h2 {
+  display: flex;
+  align-self: flex-start;
+  font-family: "Roboto-Bold";
+}
+.container-result-list p {
+  font-size: 4vw;
+  font-family: "Roboto-Thin";
+}
+
+.footer {
+  background-color: #2d2d2d;
+  padding: 8vw;
+  width: 100%;
+}
+.footer * {
+  color: white;
+}
+.footer h2 {
+  font-size: 4.8vw;
+}
+.footer__link-container {
+  display: flex;
+  width: 100%;
+  padding-top: 3.2vw;
+}
+.footer i {
+  width: 8vw;
 }
 
 /*# sourceMappingURL=style.css.map */

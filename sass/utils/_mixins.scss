@@ -1,0 +1,30 @@
+@mixin display-flex-column-center {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+@mixin display-flex-row-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@mixin display-flex-row-start-padding-left {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  padding-left: 2 * $font-size-regular;
+}
+
+@mixin section-padding-standard {
+  padding: $font-size-regular * 2 $font-size-regular * 2 $font-size-regular * 2
+    $font-size-regular * 2;
+}
+
+@mixin h2-flex-start-bold {
+  display: flex;
+  align-self: flex-start;
+  font-family: "Roboto-Bold";
+}
