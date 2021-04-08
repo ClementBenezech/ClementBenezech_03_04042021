@@ -6,4 +6,13 @@
   color: $color-button-text;
   margin-top: $font-size-regular;
   width: max-content;
+  box-shadow: 0 1vw 0.5vw 0.5vw darken($background-color-primary, 5);
+  &:hover {
+    background: linear-gradient(
+      180deg,
+      lighten($color-secondary, 0),
+      lighten($color-primary, 5)
+    );
+    box-shadow: 0 1vw 0.5vw 0.5vw darken($background-color-primary, 7);
+  }
 }

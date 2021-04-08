@@ -8,13 +8,13 @@
 @mixin display-flex-row-center {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
 }
 
 @mixin display-flex-row-start-padding-left {
   display: flex;
   justify-content: start;
-  width: 100%;
+  width: 100vw;
   padding-left: 2 * $font-size-regular;
 }
 
@@ -27,4 +27,15 @@
   display: flex;
   align-self: flex-start;
   font-family: "Roboto-Bold";
+}
+
+@mixin loader-element {
+  position: absolute;
+  box-sizing: content-box;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 36vh;
+  margin-bottom: auto;
 }
