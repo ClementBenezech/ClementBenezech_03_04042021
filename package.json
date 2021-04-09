@@ -2,9 +2,10 @@
   "name": "clementbenezech_3_04042021",
   "version": "1.0.0",
   "description": "In this project, this is used to declare sass and prefixer scripts",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d./public/css/prefixed/"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,7 @@
   },
   "author": "Clement Benezech",
   "license": "ISC",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/ClementBenezech/ClementBenezech_03_04042021/issues"
   },

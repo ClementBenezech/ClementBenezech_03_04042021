@@ -241,6 +241,7 @@ h2 {
   animation: fill-heart 1.5s forwards;
   background: linear-gradient(180deg, #ff79da, #9356dc);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 @keyframes fill-heart {
