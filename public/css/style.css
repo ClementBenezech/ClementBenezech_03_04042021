@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 button {
   text-decoration: none;
   outline: none;
@@ -38,7 +42,7 @@ h1,
 footer > h2 {
   font-family: "Shrikhand", sans-serif;
   font-weight: 900;
-  font-size: 10vw;
+  font-size: 8vw;
   margin: 0px;
 }
 
@@ -209,13 +213,54 @@ h2 {
 .container-result-list__result-location {
   height: 25%;
 }
-.container-result-list__favorite {
+.container-result-list i.far {
   position: absolute;
+  display: block;
   top: 57vw;
   right: 5vw;
   z-index: 50;
   color: black;
   font-size: 6vw;
+  font-weight: 100;
+}
+.container-result-list i.far:hover {
+  /*On hover, change the opacity of the outline style heart to 0 using animation*/
+  opacity: 0;
+  animation: hide-heart 0.75s forwards;
+}
+@keyframes hide-heart {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.container-result-list i.far:hover + i.fas {
+  /*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
+  animation: fill-heart 1.5s forwards;
+  background: linear-gradient(180deg, #ff79da, #9356dc);
+  background-clip: text;
+  color: transparent;
+}
+@keyframes fill-heart {
+  /*almost duplicate, need to make a function out of this*/
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.container-result-list i.fas {
+  position: absolute;
+  display: block;
+  top: 57vw;
+  right: 5vw;
+  z-index: 1;
+  color: transparent;
+  font-size: 6vw;
+  opacity: 0;
 }
 .container-result-list h2 {
   display: flex;

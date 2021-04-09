@@ -129,14 +129,58 @@
   &__result-location {
     height: 25%;
   }
-  &__favorite {
+
+  i.far {
     position: absolute;
+    display: block;
     top: 57vw;
     right: 5vw;
     z-index: $medium-index;
     color: black;
     font-size: 1.5 * $font-size-regular;
+    font-weight: 100;
+    &:hover {
+      /*On hover, change the opacity of the outline style heart to 0 using animation*/
+      opacity: 0;
+      @keyframes hide-heart {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      animation: hide-heart 0.75s forwards;
+      & + i.fas {
+        /*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
+        @keyframes fill-heart {
+          /*almost duplicate, need to make a function out of this*/
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        animation: fill-heart 1.5s forwards;
+        background: linear-gradient(180deg, $color-secondary, $color-primary);
+        background-clip: text;
+        color: transparent;
+      }
+    }
   }
+
+  i.fas {
+    position: absolute;
+    display: block;
+    top: 57vw;
+    right: 5vw;
+    z-index: $minimum-index;
+    color: transparent;
+    font-size: 1.5 * $font-size-regular;
+    opacity: 0;
+  }
+
   h2 {
     @include h2-flex-start-bold;
   }
