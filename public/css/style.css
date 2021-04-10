@@ -2,6 +2,8 @@
 This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
 The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
 /*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
+/*Step number size*/
+/*Step content margin*/
 @font-face {
   font-family: "Roboto";
   src: url(../../public/font/Roboto-Regular.ttf);
@@ -63,7 +65,7 @@ h2 {
 }
 
 .btn-explore {
-  background: linear-gradient(180deg, #ff79da, #9356dc);
+  background: linear-gradient(150deg, #ff79da, #9356dc);
   padding: 4vw;
   /*this will ensure vertical alignment of the h2 title in the middle of the container, and also harmonious side padding*/
   font-size: 4vw;
@@ -76,20 +78,52 @@ h2 {
 @media screen and (min-width: 1080px) {
   .btn-explore {
     font-size: 2vw;
-    margin: 0.4vw 0.4vw 0.4vw 0px;
+    margin: 0.2vw 0.2vw 0.2vw 0px;
     padding: 1vw;
-    font-size: 1vw;
+    font-size: 2vw;
+    border-top: 0.1vw solid #ff79da;
+    border-bottom: 0.1vw solid #ff79da;
     border-radius: 1vw;
+    margin-bottom: 2vw;
+    margin-top: 2vw;
+    font-family: Shrikhand;
+    background: linear-gradient(150deg, #ff79da, #bc95e9);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: desktop-btn-anim;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes desktop-btn-anim {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 @media screen and (min-width: 1080px) {
   .btn-explore {
-    box-shadow: 0 0.5vw 0.25vw 0.25vw #ececec;
+    box-shadow: 0 0.3vw 0.3vw 0.3vw #ececec;
   }
 }
 .btn-explore:hover {
   background: linear-gradient(180deg, #ff79da, #a16be0);
-  box-shadow: #e7e7e7;
+}
+@media screen and (min-width: 1080px) {
+  .btn-explore:hover {
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: Shrikhand;
+    color: transparent;
+    box-shadow: #e7e7e7;
+  }
 }
 
 .container-locale {
@@ -118,7 +152,7 @@ h2 {
   .container-locale h2,
 .container-locale i {
     font-size: 2vw;
-    margin: 0.4vw 0.4vw 0.4vw 0px;
+    margin: 0.2vw 0.2vw 0.2vw 0px;
   }
 }
 
@@ -143,7 +177,7 @@ h2 {
 @media screen and (min-width: 1080px) {
   .container-explore h2 {
     font-size: 2vw;
-    margin: 0.4vw 0.4vw 0.4vw 0px;
+    margin: 0.2vw 0.2vw 0.2vw 0px;
   }
 }
 .container-explore p {
@@ -152,9 +186,9 @@ h2 {
 }
 @media screen and (min-width: 1080px) {
   .container-explore p {
-    font-size: 2vw;
-    margin: 0.4vw 0.4vw 0.4vw 0px;
     font-size: 1vw;
+    margin: 0.2vw 0.2vw 0.2vw 0px;
+    font-family: "Roboto";
   }
 }
 
@@ -185,7 +219,6 @@ h2 {
   width: 100vw;
   flex-direction: row;
   width: 90vw;
-  /*padding: $font-size-regular * 2 $font-size-regular $font-size-regular * 2 -10vw;*/
   margin-top: 8vw;
   border-radius: 4vw;
 }
@@ -197,45 +230,44 @@ h2 {
     width: 30vw;
     font-size: 2vw;
     margin: 0vw 0vw 0vw 0px;
-    padding: 0px;
-    padding-top: 0vw;
-    padding-bottom: 0vw;
+    padding: 0;
   }
   .container-how-to-use__step-container > * {
     font-size: 2vw;
     padding: 0vw;
-    /*margin-bottom: $font-size-extra-small;*/
   }
 }
 .container-how-to-use__step-number {
-  flex: 6.5vw;
+  flex: 6.4vw;
   height: 6vw;
   line-height: 6vw;
-  background-color: #9356dc;
   border-radius: 50%;
+  background-color: #9356dc;
   z-index: 50;
+  /*so it displays above  step_content*/
   color: white;
 }
 @media screen and (min-width: 1080px) {
   .container-how-to-use__step-number {
-    flex: 11vw;
-    height: 100%;
+    flex: 10.4vw;
+    height: 2.8vw;
     line-height: 2.8vw;
-    border-radius: 2vw;
+    border-radius: 50%;
     margin-top: 1.3vw;
   }
 }
 .container-how-to-use__step-content {
-  flex: 95vw;
-  background-color: #f9f9f9;
-  margin-left: -3vw;
-  border-radius: 4vw;
-  color: #adadad;
-  box-shadow: 0 0.5vw 0.5vw #adadad;
   display: flex;
   justify-content: start;
   width: 100vw;
   padding-left: 8vw;
+  flex: 95vw;
+  background-color: #f9f9f9;
+  margin-left: -3vw;
+  /*so it goes below the number*/
+  border-radius: 2vw;
+  color: #adadad;
+  box-shadow: 0 0.5vw 0.5vw #adadad;
 }
 .container-how-to-use__step-content > * {
   margin: 4vw 4vw 4vw 0px;
@@ -277,14 +309,14 @@ h2 {
   }
 }
 .container-how-to-use h2 {
-  padding-left: 2vw;
   text-align: left;
-  width: 95%;
+  width: 100%;
+  margin-left: -4.8vw;
 }
 @media screen and (min-width: 1080px) {
   .container-how-to-use h2 {
     font-size: 2vw;
-    margin: 0.4vw 0.4vw 0.4vw 0px;
+    margin: 0.2vw 0.2vw 0.2vw 0px;
     text-align: center;
     display: none;
   }
@@ -306,16 +338,15 @@ h2 {
 }
 @media screen and (min-width: 1080px) {
   .container-result-list {
-    padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
     align-items: flex-start;
-    width: 100%;
-    align-content: center;
     justify-content: space-around;
-    padding: 1vw;
+    width: 100%;
+    justify-content: space-around;
+    padding: 2vw;
   }
 }
 .container-result-list__result-container {
@@ -324,7 +355,7 @@ h2 {
   display: flex;
   flex-direction: column;
   margin: 4vw;
-  width: 80vw;
+  width: 90vw;
 }
 .container-result-list__result-container > * {
   font-size: 4vw;
@@ -357,7 +388,6 @@ h2 {
   flex-direction: column;
   text-align: start;
   padding-left: 4vw;
-  /*padding-top: $font-size-regular;*/
   background-color: white;
   box-shadow: 0 0.5vw 0.5vw #adadad;
 }
@@ -402,9 +432,8 @@ h2 {
     top: 1vw;
     right: 1vw;
     z-index: 50;
-    font-size: 2vw;
-    margin: 0.2vw 0.2vw 0.2vw 0px;
     font-size: 1vw;
+    margin: 0.1vw 0.1vw 0.1vw 0px;
     padding: 0.2vw;
   }
 }
@@ -503,7 +532,7 @@ h2 {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    padding: 2vw 0 12vw 0;
+    padding: 2vw 0 4vw 0;
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -513,6 +542,7 @@ h2 {
 }
 .footer h2 {
   font-size: 4.8vw;
+  margin-bottom: 2vw;
 }
 @media screen and (min-width: 1080px) {
   .footer h2 {
@@ -527,6 +557,7 @@ h2 {
 }
 .footer i {
   width: 4vw;
+  margin-right: 2vw;
 }
 
 /*Here we handle the spin loader behavio(u)r:

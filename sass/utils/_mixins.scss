@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   text-align: center;
   align-items: flex-start;
+  justify-content: space-around;
 }
 
 @mixin display-flex-row-center {
@@ -67,8 +68,22 @@ The @ content directive allows for custom properties to be specified in the @inc
   z-index: $index;
 }
 
-@mixin desktop-font-size-margin($multiplier) {
-  font-size: $font-size-small;
-  margin: $multiplier * $font-size-small $multiplier * $font-size-small
-    $multiplier * $font-size-small 0px;
+@mixin font-size-margin($font-size, $margin) {
+  font-size: $font-size;
+  margin: $margin $margin $margin 0px;
+}
+
+/*Step number size*/
+
+@mixin step-number-dimension($flex, $height) {
+  flex: $flex;
+  height: $height;
+  line-height: $height;
+  border-radius: 50%;
+}
+
+/*Step content margin*/
+
+@mixin step-content-margin($size) {
+  margin: $size $size $size 0px;
 }

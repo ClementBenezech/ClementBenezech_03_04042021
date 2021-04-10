@@ -2,9 +2,9 @@
   background-color: darken($color-background-primary, 80%);
   padding: 2 * $font-size_regular;
   @include desktop-only {
-    @include desktop-font-size-margin(0);
+    @include font-size-margin($font-size-small, 0 * $font-size-small);
     @include display-flex-column-center;
-    padding: $font-size_small 0 3 * $font-size_regular 0;
+    padding: $font-size_small 0 1 * $font-size_regular 0;
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -14,6 +14,7 @@
   }
   h2 {
     font-size: 1.2 * $font-size-regular;
+    margin-bottom: $font-size-small;
     @include desktop-only {
       display: none;
     }
@@ -26,5 +27,6 @@
   }
   i {
     width: 2 * $font-size-small;
+    margin-right: $font-size-small;
   }
 }
