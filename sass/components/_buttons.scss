@@ -5,14 +5,24 @@
   border-radius: $font-size-regular * 2;
   color: $color-button-text;
   margin-top: $font-size-regular;
+  @include desktop-only {
+    @include desktop-font-size-margin(0.2);
+    padding: 0.5 * $font-size-small;
+    font-size: 0.5 * $font-size-small;
+    border-radius: 0.5 * $font-size-small;
+  }
   width: max-content;
-  box-shadow: 0 1vw 0.5vw 0.5vw darken($background-color-primary, 5);
+  box-shadow: 0 1vw 0.5vw 0.5vw darken($color-background-primary, 5);
+  @include desktop-only {
+    box-shadow: 0 0.5vw 0.25vw 0.25vw darken($color-background-primary, 5);
+  }
+
   &:hover {
     background: linear-gradient(
       180deg,
       lighten($color-secondary, 0),
       lighten($color-primary, 5)
     );
-    box-shadow: 0 1vw 0.5vw 0.5vw darken($background-color-primary, 7);
+    box-shadow: darken($color-background-primary, 7);
   }
 }

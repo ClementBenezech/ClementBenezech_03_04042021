@@ -5,10 +5,19 @@
   align-items: center;
 }
 
+@mixin display-flex-row-wrap-center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: flex-start;
+}
+
 @mixin display-flex-row-center {
   display: flex;
   justify-content: center;
   width: 100vw;
+  flex-direction: row;
 }
 
 @mixin display-flex-row-start-padding-left {
@@ -18,9 +27,8 @@
   padding-left: 2 * $font-size-regular;
 }
 
-@mixin section-padding-standard {
-  padding: $font-size-regular * 2 $font-size-regular * 2 $font-size-regular * 2
-    $font-size-regular * 2;
+@mixin section-padding-standard($font-size) {
+  padding: $font-size * 2;
 }
 
 @mixin h2-flex-start-bold {
@@ -38,4 +46,29 @@
   margin-right: auto;
   margin-top: 36vh;
   margin-bottom: auto;
+}
+
+/*Used to adress desktop specific layout
+This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
+The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
+@mixin desktop-only {
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+/*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
+
+@mixin position-absolute-top-right($top-distance, $right-distance, $index) {
+  position: absolute;
+  display: block;
+  top: $top-distance;
+  right: $right-distance;
+  z-index: $index;
+}
+
+@mixin desktop-font-size-margin($multiplier) {
+  font-size: $font-size-small;
+  margin: $multiplier * $font-size-small $multiplier * $font-size-small
+    $multiplier * $font-size-small 0px;
 }

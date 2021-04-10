@@ -1,3 +1,7 @@
+/*Used to adress desktop specific layout
+This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
+The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
+/*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
 @font-face {
   font-family: "Roboto";
   src: url(../../public/font/Roboto-Regular.ttf);
@@ -47,6 +51,12 @@ footer > h2 {
   font-size: 8vw;
   margin: 0px;
 }
+@media screen and (min-width: 1080px) {
+  h1,
+footer > h2 {
+    font-size: 4vw;
+  }
+}
 
 h2 {
   margin: 0px;
@@ -63,16 +73,32 @@ h2 {
   width: max-content;
   box-shadow: 0 1vw 0.5vw 0.5vw #ececec;
 }
+@media screen and (min-width: 1080px) {
+  .btn-explore {
+    font-size: 2vw;
+    margin: 0.4vw 0.4vw 0.4vw 0px;
+    padding: 1vw;
+    font-size: 1vw;
+    border-radius: 1vw;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .btn-explore {
+    box-shadow: 0 0.5vw 0.25vw 0.25vw #ececec;
+  }
+}
 .btn-explore:hover {
   background: linear-gradient(180deg, #ff79da, #a16be0);
-  box-shadow: 0 1vw 0.5vw 0.5vw #e7e7e7;
+  box-shadow: #e7e7e7;
 }
 
 .container-locale {
   display: flex;
   justify-content: center;
   width: 100vw;
+  flex-direction: row;
   width: 100%;
+  align-items: center;
   /*Linking the locale-container background color with the main background color, given the fact that it is a different shade of the same color
   (well, if you consider grey to be a color) If we were to change the value of background color to adopt a new theme, 
   only one value would have to be changed in the _variable.scss file. Alternatively, I could also have created another color derived from this one 
@@ -88,22 +114,48 @@ h2 {
   /*this will ensure vertical alignment of the h2 title in the middle of the container*/
   font-size: 4vw;
 }
+@media screen and (min-width: 1080px) {
+  .container-locale h2,
+.container-locale i {
+    font-size: 2vw;
+    margin: 0.4vw 0.4vw 0.4vw 0px;
+  }
+}
 
 .container-explore {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  padding: 8vw 8vw 8vw 8vw;
+  padding: 8vw;
   background-color: #f9f9f9;
+}
+@media screen and (min-width: 1080px) {
+  .container-explore {
+    padding: 0;
+    width: 100%;
+  }
 }
 .container-explore h2 {
   font-size: 6vw;
   font-family: "Roboto-Bold";
 }
+@media screen and (min-width: 1080px) {
+  .container-explore h2 {
+    font-size: 2vw;
+    margin: 0.4vw 0.4vw 0.4vw 0px;
+  }
+}
 .container-explore p {
   font-size: 4vw;
   font-family: "Roboto-Thin";
+}
+@media screen and (min-width: 1080px) {
+  .container-explore p {
+    font-size: 2vw;
+    margin: 0.4vw 0.4vw 0.4vw 0px;
+    font-size: 1vw;
+  }
 }
 
 .container-how-to-use {
@@ -111,30 +163,70 @@ h2 {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  padding: 8vw 8vw 8vw 8vw;
-  width: 100vw;
+  padding: 8vw;
+  width: 100%;
+}
+@media screen and (min-width: 1080px) {
+  .container-how-to-use {
+    padding: 4vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 0px;
+    margin: 1vw;
+  }
 }
 .container-how-to-use__step-container {
   display: flex;
   justify-content: center;
   width: 100vw;
-  width: 100%;
+  flex-direction: row;
+  width: 90vw;
   /*padding: $font-size-regular * 2 $font-size-regular $font-size-regular * 2 -10vw;*/
   margin-top: 8vw;
   border-radius: 4vw;
 }
+.container-how-to-use__step-container > * {
+  font-size: 4vw;
+}
+@media screen and (min-width: 1080px) {
+  .container-how-to-use__step-container {
+    width: 30vw;
+    font-size: 2vw;
+    margin: 0vw 0vw 0vw 0px;
+    padding: 0px;
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+  }
+  .container-how-to-use__step-container > * {
+    font-size: 2vw;
+    padding: 0vw;
+    /*margin-bottom: $font-size-extra-small;*/
+  }
+}
 .container-how-to-use__step-number {
-  flex: 7.2vw;
-  margin: auto;
+  flex: 6.5vw;
   height: 6vw;
   line-height: 6vw;
   background-color: #9356dc;
-  border-radius: 4vw;
+  border-radius: 50%;
   z-index: 50;
   color: white;
 }
+@media screen and (min-width: 1080px) {
+  .container-how-to-use__step-number {
+    flex: 11vw;
+    height: 100%;
+    line-height: 2.8vw;
+    border-radius: 2vw;
+    margin-top: 1.3vw;
+  }
+}
 .container-how-to-use__step-content {
-  flex: 1fr;
+  flex: 95vw;
   background-color: #f9f9f9;
   margin-left: -3vw;
   border-radius: 4vw;
@@ -144,6 +236,21 @@ h2 {
   justify-content: start;
   width: 100vw;
   padding-left: 8vw;
+}
+.container-how-to-use__step-content > * {
+  margin: 4vw 4vw 4vw 0px;
+}
+@media screen and (min-width: 1080px) {
+  .container-how-to-use__step-content {
+    height: 100%;
+    margin-left: -1.5vw;
+    width: 3.5vw;
+    font-size: 1vw;
+    align-content: center;
+  }
+  .container-how-to-use__step-content > * {
+    margin: 2vw 2vw 2vw 0px;
+  }
 }
 @keyframes step-content-color {
   to {
@@ -161,15 +268,31 @@ h2 {
   color: black;
   font-weight: bold;
 }
+.container-how-to-use__step-content i {
+  margin-top: 4.5vw;
+}
+@media screen and (min-width: 1080px) {
+  .container-how-to-use__step-content i {
+    margin-top: 2.1vw;
+  }
+}
 .container-how-to-use h2 {
-  display: flex;
-  align-self: flex-start;
-  font-family: "Roboto-Bold";
+  padding-left: 2vw;
+  text-align: left;
+  width: 95%;
+}
+@media screen and (min-width: 1080px) {
+  .container-how-to-use h2 {
+    font-size: 2vw;
+    margin: 0.4vw 0.4vw 0.4vw 0px;
+    text-align: center;
+    display: none;
+  }
 }
 .container-how-to-use i {
-  margin: 4vw 4vw 4vw 0px;
+  /*margin: $font-size-regular $font-size-regular $font-size-regular 0px;*/
   /*this will ensure vertical alignment of the h2 title in the middle of the container*/
-  font-size: 4vw;
+  /*font-size: $font-size-regular;*/
   color: #adadad;
 }
 
@@ -178,9 +301,22 @@ h2 {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  padding: 8vw 8vw 8vw 8vw;
-  width: 100vw;
+  padding: 8vw;
   background-color: #f9f9f9;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: flex-start;
+    width: 100%;
+    align-content: center;
+    justify-content: space-around;
+    padding: 1vw;
+  }
 }
 .container-result-list__result-container {
   position: relative;
@@ -188,32 +324,89 @@ h2 {
   display: flex;
   flex-direction: column;
   margin: 4vw;
+  width: 80vw;
+}
+.container-result-list__result-container > * {
+  font-size: 4vw;
+  border-radius: 4vw 4vw 0px 0px;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list__result-container {
+    margin: 0;
+    width: 22vw;
+  }
+  .container-result-list__result-container > * {
+    font-size: 2vw;
+    border-radius: 2vw 2vw 0px 0px;
+  }
 }
 .container-result-list__result-img {
   object-fit: cover;
-  width: 90vw;
+  width: 100%;
   height: 50vw;
-  border-radius: 8vw 8vw 0px 0px;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list__result-img {
+    height: 10vw;
+  }
 }
 .container-result-list__result-labels-container {
-  width: 90vw;
   height: 20vw;
-  border-radius: 0px 0px 8vw 8vw;
+  border-radius: 0px 0px 4vw 4vw;
   display: flex;
   flex-direction: column;
   text-align: start;
   padding-left: 4vw;
-  padding-top: 4vw;
+  /*padding-top: $font-size-regular;*/
   background-color: white;
   box-shadow: 0 0.5vw 0.5vw #adadad;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list__result-labels-container {
+    height: 5vw;
+    padding-left: 2vw;
+    border-radius: 0px 0px 2vw 2vw;
+  }
+  .container-result-list__result-labels-container > * {
+    font-size: 1vw;
+  }
 }
 .container-result-list__result-name {
   font-weight: bold;
   height: 25%;
-  margin-bottom: 2vw;
+  margin: 2vw 0;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list__result-name {
+    margin: 1vw 0;
+  }
 }
 .container-result-list__result-location {
   height: 25%;
+}
+.container-result-list__new-label {
+  position: absolute;
+  display: block;
+  top: 4vw;
+  right: 2vw;
+  z-index: 50;
+  background-color: #99e2d0;
+  color: #038968;
+  border-radius: 5%;
+  padding: 1vw;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list__new-label {
+    position: absolute;
+    display: block;
+    top: 1vw;
+    right: 1vw;
+    z-index: 50;
+    font-size: 2vw;
+    margin: 0.2vw 0.2vw 0.2vw 0px;
+    font-size: 1vw;
+    padding: 0.2vw;
+  }
 }
 .container-result-list i.far {
   position: absolute;
@@ -221,9 +414,18 @@ h2 {
   top: 57vw;
   right: 5vw;
   z-index: 50;
+  /*z-index: $medium-index;*/
   color: black;
-  font-size: 6vw;
   font-weight: 100;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list i.far {
+    position: absolute;
+    display: block;
+    top: 12vw;
+    right: 3vw;
+    z-index: 50;
+  }
 }
 .container-result-list i.far:hover {
   /*On hover, change the opacity of the outline style heart to 0 using animation*/
@@ -262,13 +464,26 @@ h2 {
   right: 5vw;
   z-index: 1;
   color: transparent;
-  font-size: 6vw;
   opacity: 0;
 }
+@media screen and (min-width: 1080px) {
+  .container-result-list i.fas {
+    position: absolute;
+    display: block;
+    top: 12vw;
+    right: 3vw;
+    z-index: 1;
+  }
+}
 .container-result-list h2 {
-  display: flex;
-  align-self: flex-start;
-  font-family: "Roboto-Bold";
+  padding-left: 2vw;
+  text-align: left;
+  width: 95%;
+}
+@media screen and (min-width: 1080px) {
+  .container-result-list h2 {
+    display: none;
+  }
 }
 .container-result-list p {
   font-size: 4vw;
@@ -280,19 +495,38 @@ h2 {
   padding: 8vw;
   width: 100%;
 }
+@media screen and (min-width: 1080px) {
+  .footer {
+    font-size: 2vw;
+    margin: 0vw 0vw 0vw 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 2vw 0 12vw 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
 .footer * {
   color: white;
 }
 .footer h2 {
   font-size: 4.8vw;
 }
+@media screen and (min-width: 1080px) {
+  .footer h2 {
+    display: none;
+  }
+}
 .footer__link-container {
   display: flex;
-  width: 100%;
-  padding-top: 3.2vw;
+  width: max-content;
+  padding-top: 0.8vw;
+  align-items: center;
 }
 .footer i {
-  width: 8vw;
+  width: 4vw;
 }
 
 /*Here we handle the spin loader behavio(u)r:
