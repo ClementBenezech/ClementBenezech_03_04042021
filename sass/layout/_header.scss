@@ -1,2 +1,11 @@
-.dummyClass {
+.header {
+  @include display-flex-row-center;
+  position: relative;
+}
+
+.header a {
+  padding-top: $font-size-regular;
+  left: 0;
+  position: absolute;
+  left: 1.5 * $font-size-regular;
 }

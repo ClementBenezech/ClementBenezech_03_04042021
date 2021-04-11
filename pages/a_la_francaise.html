@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>OhMyFood - Restaurants d'exception</title>
+        <meta charset="utf-8"> <!--preconisation W3C-->
+        <meta name="author" content="Clement Benezech">
+        <meta name="description" content="This page is a transcription of a mobile oriented restaurant booking website design It aims at W3C compliance, code quality, and responsiveness. Displays some native CSS animations. Styling is written in SASS using SCSS syntax, then compiled into CSS">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../public/css/style.css">
+        <link rel="icon" type="image/svg+xml" href="public/images/logo/ohmyfood@2x.svg">
+        <script src="https://kit.fontawesome.com/4966b9f0e9.js" crossorigin="anonymous"></script>
+        <!--To do:OpenGraphData  Image and description-->
+    </head>
+       
+    <body>
+
+        <div class="main-content">
+        <header class="header">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i></a>
+            <h1>ohmyfood</h1>
+        </header>
+
+        <img class="restaurant-image" src="../public/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"/>
+        <main class="restaurant-menu-container">
+            <div class="restaurant-name-container">
+                <h2>A la Francaise</h2>
+                <div class="restaurant-name-container__heart-container">
+                <i class="far fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            </div>
+            <h3 class="restaurant-menu-container__category">Entrees</h3>
+            
+            <div class="restaurant-menu-container__article-container">
+                <article class="restaurant-menu-container__article">
+                <div class="restaurant-menu-container__article__name">Nom de plat</div>
+                <div class="restaurant-menu-container__article__desc">Description bien stylée et bien longue tout ça</div>
+                <div class="restaurant-menu-container__article__price">Prix</div>
+                </article>
+                <div class="restaurant-menu-container__article__checkbox"><i class="fas fa-check-circle"></i></div>
+            </div>
+            
+            
+
+            <article class="restaurant-menu-container__article">Plat</article>
+            <article class="restaurant-menu-container__article">Plat</article>
+
+            <h3 class="restaurant-menu-container__category">Plats</h3>
+            <article class="restaurant-menu-container__article">Plat</article>
+            <article class="restaurant-menu-container__article">Plat</article>
+            <article class="restaurant-menu-container__article">Plat</article>
+            <h3 class="restaurant-menu-container__category">Desserts</h3>
+            <article class="restaurant-menu-container__article">Plat</article>
+            <article class="restaurant-menu-container__article">Plat</article>
+            <article class="restaurant-menu-container__article">Plat</article>
+            <button class="btn-explore" type="button">Commander</button>
+        </main>
+
+
+        <footer class="footer"> <!-- Contains coporate, legal, and contact links -->
+            <h2>ohmyfood</h2>
+            <div class ="footer__link-container">
+                <i class="fas fa-utensils"></i>
+                <a href="#">Proposer un restaurant</a>
+            </div>   
+            <div class ="footer__link-container">
+                <i class="fas fa-hands-helping"></i> 
+                <a href="#">Devenir partenaire</a>
+            </div>                
+            <div class ="footer__link-container">
+                    <a href="#">Mentions légales</a> 
+            </div>
+            <div class ="footer__link-container">
+                <a href="mailto:contact@ohmyfood.fr">Contact</a>
+            </div>
+
+        </footer>
+        </div>
+    </body>
+
+</html>

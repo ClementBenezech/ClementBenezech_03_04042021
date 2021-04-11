@@ -1,9 +1,115 @@
+@charset "UTF-8";
 /*Used to adress desktop specific layout
 This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
 The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
 /*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
 /*Step number size*/
 /*Step content margin*/
+/*For Desktop version of the discover button*/
+@keyframes desktop-btn-anim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
+@keyframes fill-heart {
+  /*almost duplicate, need to make a function out of this*/
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*On hover, change the opacity of the outline style heart to 0 using animation*/
+@keyframes hide-heart {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*Get the steps of the how to section to color themself with a lighter version of color primary on hover*/
+@keyframes step-content-color {
+  to {
+    color: #9356dc;
+    background-color: #ffdff6;
+  }
+}
+/*loader spinner keyframes*/
+/*to... well. hide the load screen :) */
+@keyframes hide-load-screen {
+  0% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+/*To rotate the two colored borders while getting them to fade out after 80% of the animation duration*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+/*To fade in the OHMYFOOD logo, then rotate it 360° during the remaining 50% of the animation*/
+@keyframes fade-in-rotate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: rotate(360deg);
+  }
+}
+/* To fade in the main content while the spinner div is disappearing*/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*To animate the checkbox on the menu selection*/
+@keyframes enlarge {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 15%;
+  }
+}
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 85%;
+  }
+}
 @font-face {
   font-family: "Roboto";
   src: url(../../public/font/Roboto-Regular.ttf);
@@ -96,17 +202,6 @@ h2 {
     animation-duration: 8s;
     animation-iteration-count: infinite;
   }
-  @keyframes desktop-btn-anim {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 }
 @media screen and (min-width: 1080px) {
   .btn-explore {
@@ -124,6 +219,35 @@ h2 {
     color: transparent;
     box-shadow: #e7e7e7;
   }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  flex-direction: row;
+  position: relative;
+}
+
+.header a {
+  padding-top: 4vw;
+  left: 0;
+  position: absolute;
+  left: 6vw;
+}
+
+.main-content {
+  opacity: 0;
+  overflow: hidden;
+  animation: fade-in;
+  animation-delay: 2.5s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .container-locale {
@@ -284,12 +408,6 @@ h2 {
     margin: 2vw 2vw 2vw 0px;
   }
 }
-@keyframes step-content-color {
-  to {
-    color: #9356dc;
-    background-color: #ffdff6;
-  }
-}
 .container-how-to-use__step-content:hover {
   animation: step-content-color 0.7s forwards;
 }
@@ -437,18 +555,15 @@ h2 {
     padding: 0.2vw;
   }
 }
-.container-result-list i.far {
+.container-result-list i {
   position: absolute;
   display: block;
   top: 57vw;
   right: 5vw;
   z-index: 50;
-  /*z-index: $medium-index;*/
-  color: black;
-  font-weight: 100;
 }
 @media screen and (min-width: 1080px) {
-  .container-result-list i.far {
+  .container-result-list i {
     position: absolute;
     display: block;
     top: 12vw;
@@ -456,53 +571,25 @@ h2 {
     z-index: 50;
   }
 }
+.container-result-list i.far {
+  color: black;
+  font-weight: 100;
+}
 .container-result-list i.far:hover {
-  /*On hover, change the opacity of the outline style heart to 0 using animation*/
   opacity: 0;
   animation: hide-heart 0.75s forwards;
 }
-@keyframes hide-heart {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 .container-result-list i.far:hover + i.fas {
-  /*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
   animation: fill-heart 1.5s forwards;
   background: linear-gradient(180deg, #ff79da, #9356dc);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
-@keyframes fill-heart {
-  /*almost duplicate, need to make a function out of this*/
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .container-result-list i.fas {
-  position: absolute;
-  display: block;
-  top: 57vw;
-  right: 5vw;
   z-index: 1;
   color: transparent;
   opacity: 0;
-}
-@media screen and (min-width: 1080px) {
-  .container-result-list i.fas {
-    position: absolute;
-    display: block;
-    top: 12vw;
-    right: 3vw;
-    z-index: 1;
-  }
 }
 .container-result-list h2 {
   padding-left: 2vw;
@@ -566,18 +653,6 @@ i've used two classes so far,
 - .loader-container is the style of the div containing the spinloader, using a square of 20% of the available width in the viewport.
 
 The loadscreen disappears after 3 seconds on a short fade out effect obtained by manipulating opacity, revealing the homepage*/
-@keyframes hide-load-screen {
-  0% {
-    width: 100%;
-    height: 100%;
-    visibility: visible;
-    opacity: 1;
-  }
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
 .load-screen {
   /*display: flex;*/
   position: fixed;
@@ -593,18 +668,6 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   animation-fill-mode: forwards;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(360deg);
-    opacity: 0;
-  }
-}
 .loader-spinner {
   position: absolute;
   box-sizing: content-box;
@@ -625,19 +688,6 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   height: 20vh;
 }
 
-@keyframes fade-in-rotate {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-  100% {
-    opacity: 0.5;
-    transform: rotate(360deg);
-  }
-}
 .loader-label {
   position: absolute;
   box-sizing: content-box;
@@ -664,26 +714,127 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   animation-fill-mode: forwards;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.restaurant-image {
+  width: 100%;
+  height: 70vw;
+  object-fit: cover;
+  z-index: 1;
 }
-.homepage-main-content {
-  opacity: 0;
-  overflow: hidden;
-  animation: fade-in;
-  animation-delay: 2.5s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  width: 100vw;
+
+.restaurant-menu-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
+  width: 100%;
+  border-radius: 12vw 12vw 0 0;
+  background-color: #f4f4f4;
+  margin-top: -16vw;
+  padding-bottom: 8vw;
+  z-index: 99;
+}
+.restaurant-menu-container__category {
+  width: 100%;
+}
+.restaurant-menu-container__article-container {
+  width: 90%;
+  margin-bottom: 4vw;
+  border-radius: 2vw;
+  background-color: white;
+  box-shadow: 0 0.5vw 0.5vw #adadad;
+  display: flex;
+  flex-wrap: wrap;
+}
+.restaurant-menu-container__article {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  width: 100%;
+  padding: 2vw;
+}
+.restaurant-menu-container__article__name {
+  width: 100%;
+}
+.restaurant-menu-container__article__desc {
+  max-width: 90%;
+  flex-shrink: 0;
+  font-family: "Roboto-thin";
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.restaurant-menu-container__article__price {
+  width: 10%;
+}
+.restaurant-menu-container__article__checkbox {
+  width: 0;
+  background-color: #99e2d0;
+  color: white;
+  z-index: 99;
+  border-radius: 0 2vw 2vw 0;
+  text-align: center;
+  padding-top: 4vw;
+  overflow: hidden;
+}
+.restaurant-menu-container__article:hover {
+  animation: 0.5s ease-in shrink forwards;
+}
+.restaurant-menu-container__article:hover + div.restaurant-menu-container__article__checkbox {
+  animation: 0.5s ease-in enlarge forwards;
+  width: 20%;
+}
+
+.restaurant-name-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8vw;
+  height: 8vw;
+}
+.restaurant-name-container__heart-container {
+  height: 8vw;
+  position: relative;
+  flex: 1;
+}
+.restaurant-name-container__heart-container i {
+  position: absolute;
+  display: block;
+  top: 2vw;
+  right: 8vw;
+  z-index: 50;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-name-container__heart-container i {
+    position: absolute;
+    display: block;
+    top: 1vw;
+    right: 8vw;
+    z-index: 50;
+  }
+}
+.restaurant-name-container__heart-container i.far {
+  color: black;
+  font-weight: 100;
+}
+.restaurant-name-container__heart-container i.far:hover {
+  opacity: 0;
+  animation: hide-heart 0.75s forwards;
+}
+.restaurant-name-container__heart-container i.far:hover + i.fas {
+  animation: fill-heart 1.5s forwards;
+  background: linear-gradient(180deg, #ff79da, #9356dc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.restaurant-name-container__heart-container i.fas {
+  z-index: 1;
+  color: transparent;
+  opacity: 0;
+}
+.restaurant-name-container h2 {
+  height: 8vw;
+  font-family: Shrikhand;
+  flex: 3;
 }
 
 /*# sourceMappingURL=style.css.map */

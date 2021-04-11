@@ -87,3 +87,38 @@ The @ content directive allows for custom properties to be specified in the @inc
 @mixin step-content-margin($size) {
   margin: $size $size $size 0px;
 }
+
+@mixin heart-filling-effect($top, $right, $desk-top, $desk-right) {
+  i {
+    @include position-absolute-top-right($top, $right, $medium-index);
+    @include desktop-only {
+      @include position-absolute-top-right(
+        $desk-top,
+        $desk-right,
+        $medium-index
+      );
+    }
+
+    &.far {
+      color: black;
+      font-weight: 100;
+      &:hover {
+        opacity: 0;
+        animation: hide-heart 0.75s forwards;
+        & + i.fas {
+          animation: fill-heart 1.5s forwards;
+          background: linear-gradient(180deg, $color-secondary, $color-primary);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
+    }
+
+    &.fas {
+      z-index: $minimum-index;
+      color: transparent;
+      opacity: 0;
+    }
+  }
+}
