@@ -8,4 +8,8 @@
   left: 0;
   position: absolute;
   left: 1.5 * $font-size-regular;
+  @include desktop-only {
+    padding-top: $font-size-small;
+    font-size: $font-size-small;
+  }
 }

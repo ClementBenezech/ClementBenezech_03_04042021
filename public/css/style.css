@@ -5,6 +5,8 @@ The @ content directive allows for custom properties to be specified in the @inc
 /*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
 /*Step number size*/
 /*Step content margin*/
+/*make the menu item appear 1 by one inside a category*/
+/*makes menu category appear one after another*/
 /*For Desktop version of the discover button*/
 @keyframes desktop-btn-anim {
   0% {
@@ -108,6 +110,19 @@ The @ content directive allows for custom properties to be specified in the @inc
   }
   to {
     width: 85%;
+  }
+}
+/* To fade in the main content while the spinner div is disappearing*/
+@keyframes fade-in-grow-remove-top-margin {
+  0% {
+    opacity: 0;
+    height: 0%;
+    margin-top: 8vw;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    margin-top: 0;
   }
 }
 @font-face {
@@ -234,6 +249,12 @@ h2 {
   left: 0;
   position: absolute;
   left: 6vw;
+}
+@media screen and (min-width: 1080px) {
+  .header a {
+    padding-top: 2vw;
+    font-size: 2vw;
+  }
 }
 
 .main-content {
@@ -605,6 +626,10 @@ h2 {
   font-size: 4vw;
   font-family: "Roboto-Thin";
 }
+.container-result-list a {
+  text-decoration: none;
+  color: black;
+}
 
 .footer {
   background-color: #2d2d2d;
@@ -718,7 +743,11 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   width: 100%;
   height: 70vw;
   object-fit: cover;
-  z-index: 1;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-image {
+    height: 20vw;
+  }
 }
 
 .restaurant-menu-container {
@@ -732,8 +761,45 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   padding-bottom: 8vw;
   z-index: 99;
 }
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container {
+    border-radius: 2vw 2vw 0 0;
+    margin-top: -8vw;
+  }
+}
 .restaurant-menu-container__category {
   width: 100%;
+  padding-left: 6vw;
+  border-bottom: 0.8vw solid #99e2d0;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container__category {
+    /*text-align: center;*/
+    padding-left: 3vw;
+    border-bottom: 0.4vw solid #99e2d0;
+  }
+}
+.restaurant-menu-container__course-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /*opacity: 0;
+  /*starts @ 2 because the first child of the parent (restaurant-menu-container) is restaurant-name-container
+  @include course-category-fade-in(2);
+  @include course-category-fade-in(3);
+  @include course-category-fade-in(4);*/
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container__course-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /*border-bottom: 1px solid $color-secondary;*/
+    padding-bottom: 1vw;
+  }
 }
 .restaurant-menu-container__article-container {
   width: 90%;
@@ -743,6 +809,48 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   box-shadow: 0 0.5vw 0.5vw #adadad;
   display: flex;
   flex-wrap: wrap;
+  opacity: 0;
+  margin-top: 8vw;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container__article-container {
+    width: 30%;
+    margin-bottom: 1vw;
+    border-radius: 0.4vw;
+  }
+}
+.restaurant-menu-container__article-container:nth-child(1) {
+  animation-name: fade-in-grow-remove-top-margin;
+  animation-duration: 1s;
+  animation-delay: 2.25s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+.restaurant-menu-container__article-container:nth-child(2) {
+  animation-name: fade-in-grow-remove-top-margin;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+.restaurant-menu-container__article-container:nth-child(3) {
+  animation-name: fade-in-grow-remove-top-margin;
+  animation-duration: 1s;
+  animation-delay: 2.75s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+.restaurant-menu-container__article-container:nth-child(4) {
+  animation-name: fade-in-grow-remove-top-margin;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container > * {
+    font-size: 2vw;
+  }
 }
 .restaurant-menu-container__article {
   display: flex;
@@ -751,11 +859,19 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   width: 100%;
   padding: 2vw;
 }
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container__article {
+    padding: 1vw;
+  }
+}
 .restaurant-menu-container__article__name {
   width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .restaurant-menu-container__article__desc {
-  max-width: 90%;
+  width: 90%;
   flex-shrink: 0;
   font-family: "Roboto-thin";
   white-space: nowrap;
@@ -775,6 +891,12 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   padding-top: 4vw;
   overflow: hidden;
 }
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container__article__checkbox {
+    border-radius: 0 0.4vw 0.4vw 0;
+    padding-top: 2vw;
+  }
+}
 .restaurant-menu-container__article:hover {
   animation: 0.5s ease-in shrink forwards;
 }
@@ -790,8 +912,21 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   padding: 8vw;
   height: 8vw;
 }
-.restaurant-name-container__heart-container {
+.restaurant-name-container > * {
   height: 8vw;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-name-container {
+    padding: 4vw;
+    height: 4vw;
+  }
+  .restaurant-name-container > * {
+    height: 2vw;
+    font-size: 2vw;
+    line-height: 2vw;
+  }
+}
+.restaurant-name-container__heart-container {
   position: relative;
   flex: 1;
 }
@@ -806,7 +941,7 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   .restaurant-name-container__heart-container i {
     position: absolute;
     display: block;
-    top: 1vw;
+    top: 0vw;
     right: 8vw;
     z-index: 50;
   }
@@ -832,7 +967,6 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   opacity: 0;
 }
 .restaurant-name-container h2 {
-  height: 8vw;
   font-family: Shrikhand;
   flex: 3;
 }
