@@ -3,7 +3,8 @@
   height: 70vw;
   object-fit: cover;
   @include desktop-only {
-    height: 20vw;
+    height: 25vw;
+    border-radius: $font-size-regular;
   }
 }
 
@@ -24,17 +25,17 @@
   &__category {
     width: 100%;
     padding-left: 1.5 * $font-size-regular;
-    border-bottom: 0.2 * $font-size-regular solid $color-tertiary;
     @include desktop-only {
       /*text-align: center;*/
       padding-left: 1.5 * $font-size-small;
-      border-bottom: 0.2 * $font-size-small solid $color-tertiary;
+      margin-bottom: $font-size-small;
     }
   }
   &__course-container {
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex-wrap: nowrap;
     @include desktop-only {
       flex-direction: row;
       flex-wrap: wrap;
@@ -50,6 +51,24 @@
     @include course-category-fade-in(2);
     @include course-category-fade-in(3);
     @include course-category-fade-in(4);*/
+
+    &__underline {
+      display: block;
+      width: 20%;
+      height: 0.25 * $font-size-regular;
+      background: linear-gradient(
+        90deg,
+        $color-tertiary,
+        $color-background-primary
+      );
+      margin-left: 1.5 * $font-size-regular;
+      align-self: flex-start;
+      margin-bottom: 0.5 * $font-size-regular;
+      @include desktop-only {
+        width: 100%;
+        margin-left: 1.5 * $font-size-small;
+      }
+    }
   }
 
   &__article-container {
@@ -71,6 +90,7 @@
     @include course-item-fade-in(2);
     @include course-item-fade-in(3);
     @include course-item-fade-in(4);
+    @include course-item-fade-in(5);
   }
 
   @include desktop-only {

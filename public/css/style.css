@@ -249,6 +249,10 @@ h2 {
   left: 0;
   position: absolute;
   left: 6vw;
+  color: black;
+}
+.header a:hover {
+  color: #ff79da;
 }
 @media screen and (min-width: 1080px) {
   .header a {
@@ -746,7 +750,8 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 }
 @media screen and (min-width: 1080px) {
   .restaurant-image {
-    height: 20vw;
+    height: 25vw;
+    border-radius: 4vw;
   }
 }
 
@@ -770,19 +775,19 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 .restaurant-menu-container__category {
   width: 100%;
   padding-left: 6vw;
-  border-bottom: 0.8vw solid #99e2d0;
 }
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container__category {
     /*text-align: center;*/
     padding-left: 3vw;
-    border-bottom: 0.4vw solid #99e2d0;
+    margin-bottom: 2vw;
   }
 }
 .restaurant-menu-container__course-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -799,6 +804,21 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
     justify-content: space-evenly;
     /*border-bottom: 1px solid $color-secondary;*/
     padding-bottom: 1vw;
+  }
+}
+.restaurant-menu-container__course-container__underline {
+  display: block;
+  width: 20%;
+  height: 1vw;
+  background: linear-gradient(90deg, #99e2d0, #f9f9f9);
+  margin-left: 6vw;
+  align-self: flex-start;
+  margin-bottom: 2vw;
+}
+@media screen and (min-width: 1080px) {
+  .restaurant-menu-container__course-container__underline {
+    width: 100%;
+    margin-left: 3vw;
   }
 }
 .restaurant-menu-container__article-container {
@@ -844,6 +864,13 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   animation-name: fade-in-grow-remove-top-margin;
   animation-duration: 1s;
   animation-delay: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+.restaurant-menu-container__article-container:nth-child(5) {
+  animation-name: fade-in-grow-remove-top-margin;
+  animation-duration: 1s;
+  animation-delay: 3.25s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
