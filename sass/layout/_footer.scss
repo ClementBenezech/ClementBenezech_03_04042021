@@ -7,6 +7,7 @@
     padding: $font-size_small 0 1 * $font-size_regular 0;
     flex-direction: row;
     justify-content: space-evenly;
+    z-index: $maximum-index;
   }
   width: 100%;
   * {

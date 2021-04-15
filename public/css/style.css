@@ -213,11 +213,15 @@ h2 {
     margin-bottom: 2vw;
     margin-top: 2vw;
     font-family: Shrikhand;
-    background: linear-gradient(150deg, #ff79da, #bc95e9);
+    /*background: linear-gradient(
+      150deg,
+      $color-secondary,
+      lighten($color-primary, 15%)
+    );
     background-size: 400% 400%;
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    color: transparent;*/
     animation: desktop-btn-anim;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -225,7 +229,7 @@ h2 {
 }
 @media screen and (min-width: 1080px) {
   .btn-explore {
-    box-shadow: 0 0.3vw 0.3vw 0.3vw #ececec;
+    box-shadow: 0 0.1vw 0.1vw 0 #ececec;
   }
 }
 .btn-explore:hover {
@@ -233,11 +237,17 @@ h2 {
 }
 @media screen and (min-width: 1080px) {
   .btn-explore:hover {
-    background-clip: text;
-    -webkit-background-clip: text;
+    /*background-clip: text;
+    -webkit-background-clip: text;*/
     font-family: Shrikhand;
-    color: transparent;
+    /*color: transparent;*/
     box-shadow: #e7e7e7;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .btn-explore--restaurant-page {
+    width: 20%;
+    margin-left: 40%;
   }
 }
 
@@ -247,6 +257,7 @@ h2 {
   width: 100vw;
   flex-direction: row;
   position: relative;
+  z-index: 99;
 }
 
 .header a {
@@ -266,6 +277,12 @@ h2 {
   }
 }
 
+@media screen and (min-width: 1080px) {
+  .header a,
+h1 {
+    text-shadow: 0 0 1vw white;
+  }
+}
 .main-content {
   opacity: 0;
   overflow: hidden;
@@ -656,6 +673,7 @@ h2 {
     padding: 2vw 0 4vw 0;
     flex-direction: row;
     justify-content: space-evenly;
+    z-index: 99;
   }
 }
 .footer * {
@@ -755,8 +773,11 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 }
 @media screen and (min-width: 1080px) {
   .restaurant-image {
-    height: 25vw;
-    border-radius: 4vw;
+    height: 100vh;
+    /*border-radius: $font-size-regular;*/
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -773,8 +794,12 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 }
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container {
-    border-radius: 2vw 2vw 0 0;
-    margin-top: -8vw;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    margin-top: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 }
 .restaurant-menu-container__category {
@@ -784,7 +809,8 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container__category {
     /*text-align: center;*/
-    padding-left: 3vw;
+    width: 90%;
+    padding-left: 0;
     margin-bottom: 2vw;
   }
 }
@@ -807,6 +833,7 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    width: 33%;
     /*border-bottom: 1px solid $color-secondary;*/
     padding-bottom: 1vw;
   }
@@ -822,8 +849,8 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 }
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container__course-container__underline {
-    width: 100%;
-    margin-left: 3vw;
+    width: 90%;
+    margin-left: 0;
   }
 }
 .restaurant-menu-container__article-container {
@@ -841,7 +868,7 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 }
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container__article-container {
-    width: 30%;
+    /*width: 30%;*/
     margin-bottom: 1vw;
     border-radius: 0.4vw;
   }
@@ -946,6 +973,8 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   .restaurant-name-container {
     padding: 4vw;
     height: 4vw;
+    /*order: 1;*/
+    width: 100%;
   }
   .restaurant-name-container > * {
     height: 2vw;

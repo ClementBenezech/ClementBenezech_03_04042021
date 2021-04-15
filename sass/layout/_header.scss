@@ -1,6 +1,7 @@
 .header {
   @include display-flex-row-center;
   position: relative;
+  z-index: $maximum-index;
 }
 
 .header a {
@@ -15,5 +16,11 @@
   @include desktop-only {
     padding-top: $font-size-small;
     font-size: $font-size-small;
+  }
+}
+@include desktop-only {
+  .header a,
+  h1 {
+    text-shadow: 0 0 0.5 * $font-size-small $color-background-light;
   }
 }
