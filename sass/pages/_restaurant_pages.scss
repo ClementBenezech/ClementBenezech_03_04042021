@@ -86,16 +86,17 @@
     flex-wrap: wrap;
     opacity: 0;
     margin-top: 2 * $font-size-regular;
-    @include course-item-fade-in(1);
-    @include course-item-fade-in(2);
+    /*We fade in the menu items one by one using a specific mixin. It takes the "course-container child's index as an argument.
+    We start at index(3) because (1) is the course category, and index(2) is the underline*/
     @include course-item-fade-in(3);
     @include course-item-fade-in(4);
     @include course-item-fade-in(5);
+    @include course-item-fade-in(6);
   }
 
   @include desktop-only {
     & > * {
-      font-size: $font-size-small;
+      font-size: 0.75 * $font-size-small;
     }
   }
 

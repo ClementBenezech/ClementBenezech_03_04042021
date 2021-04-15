@@ -5,7 +5,12 @@ The @ content directive allows for custom properties to be specified in the @inc
 /*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
 /*Step number size*/
 /*Step content margin*/
-/*make the menu item appear 1 by one inside a category*/
+/*make the menu item appear 1 by one inside a category
+It takes an item "child index" as an argument, and applies an animation to it. 
+It is called from _restaurant_pages.scss, to be nested inside the __article-container class
+"For every article__container being the "nth" child of its parent (here the parent is the course container), play fade-in-grow-remove-top-margin animation"
+The higher the index, the longer the animation delay. 
+Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4 = 3s etc etc*/
 /*makes menu category appear one after another*/
 /*For Desktop version of the discover button*/
 @keyframes desktop-btn-anim {
@@ -831,6 +836,8 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   flex-wrap: wrap;
   opacity: 0;
   margin-top: 8vw;
+  /*We fade in the menu items one by one using a specific mixin. It takes the "course-container child's index as an argument.
+  We start at index(3) because (1) is the course category, and index(2) is the underline*/
 }
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container__article-container {
@@ -838,20 +845,6 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
     margin-bottom: 1vw;
     border-radius: 0.4vw;
   }
-}
-.restaurant-menu-container__article-container:nth-child(1) {
-  animation-name: fade-in-grow-remove-top-margin;
-  animation-duration: 1s;
-  animation-delay: 2.25s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in;
-}
-.restaurant-menu-container__article-container:nth-child(2) {
-  animation-name: fade-in-grow-remove-top-margin;
-  animation-duration: 1s;
-  animation-delay: 2.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in;
 }
 .restaurant-menu-container__article-container:nth-child(3) {
   animation-name: fade-in-grow-remove-top-margin;
@@ -874,9 +867,16 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
+.restaurant-menu-container__article-container:nth-child(6) {
+  animation-name: fade-in-grow-remove-top-margin;
+  animation-duration: 1s;
+  animation-delay: 3.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
 @media screen and (min-width: 1080px) {
   .restaurant-menu-container > * {
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 }
 .restaurant-menu-container__article {

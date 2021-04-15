@@ -123,7 +123,12 @@ The @ content directive allows for custom properties to be specified in the @inc
   }
 }
 
-/*make the menu item appear 1 by one inside a category*/
+/*make the menu item appear 1 by one inside a category
+It takes an item "child index" as an argument, and applies an animation to it. 
+It is called from _restaurant_pages.scss, to be nested inside the __article-container class
+"For every article__container being the "nth" child of its parent (here the parent is the course container), play fade-in-grow-remove-top-margin animation"
+The higher the index, the longer the animation delay. 
+Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4 = 3s etc etc*/
 
 @mixin course-item-fade-in($item) {
   &:nth-child(#{$item}) {
