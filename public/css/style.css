@@ -190,6 +190,11 @@ h2 {
   margin: 0px;
 }
 
+h4 {
+  margin: 0px;
+  padding: 0px;
+}
+
 .btn-explore {
   background: linear-gradient(150deg, #ff79da, #9356dc);
   padding: 4vw;
