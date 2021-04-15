@@ -90,7 +90,7 @@ The @ content directive allows for custom properties to be specified in the @inc
 
 @mixin heart-filling-effect($top, $right, $desk-top, $desk-right) {
   i {
-    @include position-absolute-top-right($top, $right, $medium-index);
+    @include position-absolute-top-right($top, $right, $maximum-index);
     @include desktop-only {
       @include position-absolute-top-right(
         $desk-top,
