@@ -9,8 +9,6 @@
     @include font-size-margin($font-size-small, 0.1 * $font-size-small);
     padding: 0.5 * $font-size-small;
     font-size: $font-size-small;
-    border-top: 0.1vw solid $color-secondary;
-    border-bottom: 0.1vw solid $color-secondary;
     border-radius: 0.5 * $font-size-small;
     margin-bottom: $font-size-small;
     margin-top: $font-size-small;
@@ -40,12 +38,13 @@
       lighten($color-secondary, 0),
       lighten($color-primary, 5)
     );
+    box-shadow: 0 0.5vw 0.5vw 0.5vw darken($color-background-primary, 15);
     @include desktop-only {
       /*background-clip: text;
       -webkit-background-clip: text;*/
       font-family: Shrikhand;
       /*color: transparent;*/
-      box-shadow: darken($color-background-primary, 7);
+      box-shadow: 0 0.1vw 0.1vw 0 darken($color-background-primary, 15);
     }
   }
   &--restaurant-page {

@@ -212,8 +212,6 @@ h4 {
     margin: 0.2vw 0.2vw 0.2vw 0px;
     padding: 1vw;
     font-size: 2vw;
-    border-top: 0.1vw solid #ff79da;
-    border-bottom: 0.1vw solid #ff79da;
     border-radius: 1vw;
     margin-bottom: 2vw;
     margin-top: 2vw;
@@ -239,6 +237,7 @@ h4 {
 }
 .btn-explore:hover {
   background: linear-gradient(180deg, #ff79da, #a16be0);
+  box-shadow: 0 0.5vw 0.5vw 0.5vw lightgray;
 }
 @media screen and (min-width: 1080px) {
   .btn-explore:hover {
@@ -246,7 +245,7 @@ h4 {
     -webkit-background-clip: text;*/
     font-family: Shrikhand;
     /*color: transparent;*/
-    box-shadow: #e7e7e7;
+    box-shadow: 0 0.1vw 0.1vw 0 lightgray;
   }
 }
 @media screen and (min-width: 1080px) {
