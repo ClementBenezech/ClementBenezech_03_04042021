@@ -108,7 +108,7 @@ The @ content directive allows for custom properties to be specified in the @inc
         & + i.fas {
           animation: fill-heart 1.5s forwards;
           background: linear-gradient(180deg, $color-secondary, $color-primary);
-          background-clip: text;
+          /*background-clip: text;*/
           -webkit-background-clip: text;
           color: transparent;
         }
