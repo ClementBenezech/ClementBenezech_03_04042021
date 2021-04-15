@@ -530,6 +530,15 @@ h1 {
   font-size: 4vw;
   border-radius: 4vw 4vw 0px 0px;
 }
+.container-result-list__result-container a {
+  /*positionning the link above the whole result container with medium index*/
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  position: absolute;
+  top: 0vw;
+  left: 0vw;
+}
 @media screen and (min-width: 1080px) {
   .container-result-list__result-container {
     margin: 0;
