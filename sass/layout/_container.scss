@@ -27,13 +27,16 @@
     rgba(0, 0, 0, 0.5) 0%,
     darken($color-background-primary, 10%) 5%
   );
-  h2,
+  & input,
   i {
-    margin: $font-size-regular $font-size-regular $font-size-regular 0px; /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+    margin: $font-size-regular 0 $font-size-regular 0; /*this will ensure vertical alignment of the input title in the middle of the container*/
     font-size: $font-size-regular;
     @include desktop-only {
       @include font-size-margin($font-size-small, 0.1 * $font-size-small);
     }
+  }
+  & input {
+    width: auto;
   }
 }
 
@@ -42,8 +45,12 @@
   @include section-padding-standard($font-size_regular);
   background-color: $color-background-primary;
   @include desktop-only {
-    @include section-padding-standard(0);
+    @include section-padding-standard($font-size-small);
     width: 100%;
+    height: 30vw;
+    background-image: url("../../public/images/restaurants/oiseauBlancParis.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
   }
 
   h2 {
@@ -51,6 +58,8 @@
     font-family: "Roboto-Bold";
     @include desktop-only {
       @include font-size-margin($font-size-small, 0.1 * $font-size-small);
+      color: $color-text-light;
+      text-shadow: 0 0 1.5 * $font-size-small black;
     }
   }
   p {
@@ -59,6 +68,8 @@
     @include desktop-only {
       @include font-size-margin($font-size-extra-small, 0.1 * $font-size-small);
       font-family: "Roboto";
+      color: $color-text-light;
+      text-shadow: 0 0 1 * $font-size-small black;
     }
   }
 }
@@ -69,6 +80,7 @@
   @include desktop-only {
     @include section-padding-standard($font-size-small);
     @include display-flex-row-wrap-center;
+
     padding: 0px;
     margin: $font-size-extra-small;
   }
@@ -239,7 +251,7 @@
   &__result-name {
     font-weight: bold;
     height: 25%;
-    margin: 0.5 * $font-size-regular 0;
+    margin: 1 * $font-size-regular 0;
     @include desktop-only {
       margin: 0.5 * $font-size-small 0;
     }
@@ -264,7 +276,7 @@
     }
   }
 
-  @include heart-filling-effect(57vw, 5vw, 12vw, 3vw);
+  @include heart-filling-effect(55vw, 5vw, 11.5vw, 3vw);
 
   h2 {
     padding-left: 2vw;

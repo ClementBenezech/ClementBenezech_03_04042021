@@ -5,13 +5,19 @@ The @ content directive allows for custom properties to be specified in the @inc
 /*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
 /*Step number size*/
 /*Step content margin*/
+/*Handles the "heart filling effect", used on both index. html and restaurant pages.
+It places both hearts (full and empty) at the same absolute position relative to the parent container
+Using either $top and $right for mobile, $desk-top and $desk-right for desktop layout.
+On load, the full heart is placed below the empty one with a lower z-index value, with its opacity set to 0. 
+then, when hovering the "above and empty" heart (far), it will trigger an animation setting it's opacity to 0
+at the same time, using the + operator, the sibling "full heart" (fas) will start having its opacity set to 1
+In the end, the empty heart is invisible, and the full one has taken its place.*/
 /*make the menu item appear 1 by one inside a category
 It takes an item "child index" as an argument, and applies an animation to it. 
 It is called from _restaurant_pages.scss, to be nested inside the __article-container class
 "For every article__container being the "nth" child of its parent (here the parent is the course container), play fade-in-grow-remove-top-margin animation"
 The higher the index, the longer the animation delay. 
 Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4 = 3s etc etc*/
-/*makes menu category appear one after another*/
 /*For Desktop version of the discover button*/
 @keyframes desktop-btn-anim {
   0% {
@@ -130,6 +136,39 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
     margin-top: 0;
   }
 }
+@keyframes shake-explore {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: -0.2vw;
+  }
+  100% {
+    margin-left: 0.2vw;
+  }
+}
+@keyframes shake-order {
+  0% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+  25% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(2deg);
+  }
+  50% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+  75% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(-2deg);
+  }
+  100% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+}
 @font-face {
   font-family: "Roboto";
   src: url(../../public/font/Roboto-Regular.ttf);
@@ -164,6 +203,14 @@ button {
 
 a {
   text-decoration: none;
+}
+
+input {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  text-align: center;
 }
 
 body {
@@ -203,55 +250,48 @@ h4 {
   border-radius: 8vw;
   color: white;
   margin-top: 4vw;
-  width: max-content;
-  box-shadow: 0 1vw 0.5vw 0.5vw #ececec;
 }
 @media screen and (min-width: 1080px) {
   .btn-explore {
-    font-size: 2vw;
-    margin: 0.2vw 0.2vw 0.2vw 0px;
-    padding: 1vw;
+    height: 100%;
+    /*padding: 0.1 * $font-size-small;*/
+    padding: 0;
+    margin: 0;
     font-size: 2vw;
     border-radius: 1vw;
-    margin-bottom: 2vw;
-    margin-top: 2vw;
+    background: transparent;
+    color: #ff79da;
+    text-shadow: black 0.1rem 0.1rem 0.1rem, black -0.1rem -0.1rem 0.1rem, white 0.5rem 0.5rem 1rem, white -0.5rem -0.5rem 1rem;
     font-family: Shrikhand;
-    /*background: linear-gradient(
-      150deg,
-      $color-secondary,
-      lighten($color-primary, 15%)
-    );
-    background-size: 400% 400%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;*/
-    animation: desktop-btn-anim;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-  }
-}
-@media screen and (min-width: 1080px) {
-  .btn-explore {
-    box-shadow: 0 0.1vw 0.1vw 0 #ececec;
+    margin-bottom: 0;
+    margin-top: 8vw;
+    border: none;
   }
 }
 .btn-explore:hover {
   background: linear-gradient(180deg, #ff79da, #a16be0);
-  box-shadow: 0 0.5vw 0.5vw 0.5vw lightgray;
+  text-shadow: 0 0 1vw white;
 }
 @media screen and (min-width: 1080px) {
   .btn-explore:hover {
-    /*background-clip: text;
-    -webkit-background-clip: text;*/
+    background: transparent;
     font-family: Shrikhand;
-    /*color: transparent;*/
-    box-shadow: 0 0.1vw 0.1vw 0 lightgray;
+    text-shadow: black 0.1rem 0.1rem 0.1rem, black -0.1rem -0.1rem 0.1rem, white 0.5rem 0.5rem 1rem, white -0.5rem -0.5rem 1rem;
+    animation-name: shake-explore;
+    animation-duration: 0.2s;
+    animation-iteration-count: 3;
   }
 }
 @media screen and (min-width: 1080px) {
   .btn-explore--restaurant-page {
-    width: 20%;
-    margin-left: 40%;
+    width: 30%;
+    margin-left: 35%;
+    font-size: 4vw;
+  }
+  .btn-explore--restaurant-page:hover {
+    animation-name: shake-order;
+    animation-duration: 0.2s;
+    animation-iteration-count: 3;
   }
 }
 
@@ -317,18 +357,21 @@ h1 {
   it displays the base background color, still darkened to adresss the specific looks of this box */
   background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, #e0e0e0 5%);
 }
-.container-locale h2,
+.container-locale input,
 .container-locale i {
-  margin: 4vw 4vw 4vw 0px;
-  /*this will ensure vertical alignment of the h2 title in the middle of the container*/
+  margin: 4vw 0 4vw 0;
+  /*this will ensure vertical alignment of the input title in the middle of the container*/
   font-size: 4vw;
 }
 @media screen and (min-width: 1080px) {
-  .container-locale h2,
+  .container-locale input,
 .container-locale i {
     font-size: 2vw;
     margin: 0.2vw 0.2vw 0.2vw 0px;
   }
+}
+.container-locale input {
+  width: auto;
 }
 
 .container-explore {
@@ -341,8 +384,12 @@ h1 {
 }
 @media screen and (min-width: 1080px) {
   .container-explore {
-    padding: 0;
+    padding: 4vw;
     width: 100%;
+    height: 30vw;
+    background-image: url("../../public/images/restaurants/oiseauBlancParis.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
   }
 }
 .container-explore h2 {
@@ -353,6 +400,8 @@ h1 {
   .container-explore h2 {
     font-size: 2vw;
     margin: 0.2vw 0.2vw 0.2vw 0px;
+    color: white;
+    text-shadow: 0 0 3vw black;
   }
 }
 .container-explore p {
@@ -364,6 +413,8 @@ h1 {
     font-size: 1vw;
     margin: 0.2vw 0.2vw 0.2vw 0px;
     font-family: "Roboto";
+    color: white;
+    text-shadow: 0 0 2vw black;
   }
 }
 
@@ -582,7 +633,7 @@ h1 {
 .container-result-list__result-name {
   font-weight: bold;
   height: 25%;
-  margin: 2vw 0;
+  margin: 4vw 0;
 }
 @media screen and (min-width: 1080px) {
   .container-result-list__result-name {
@@ -618,17 +669,21 @@ h1 {
 .container-result-list i {
   position: absolute;
   display: block;
-  top: 57vw;
+  top: 55vw;
   right: 5vw;
   z-index: 99;
+  font-size: 8vw;
+  line-height: 8vw;
 }
 @media screen and (min-width: 1080px) {
   .container-result-list i {
     position: absolute;
     display: block;
-    top: 12vw;
+    top: 11.5vw;
     right: 3vw;
-    z-index: 50;
+    z-index: 99;
+    font-size: 2vw;
+    line-height: 2vw;
   }
 }
 .container-result-list i.far {
@@ -915,7 +970,7 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   animation-timing-function: ease-in;
 }
 @media screen and (min-width: 1080px) {
-  .restaurant-menu-container > * {
+  .restaurant-menu-container > :not(button) {
     font-size: 1.5vw;
   }
 }
@@ -981,23 +1036,23 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 8vw;
-  height: 8vw;
+  margin-left: 12vw;
+  margin-top: 8vw;
 }
 .restaurant-name-container > * {
-  height: 8vw;
+  height: 12vw;
 }
 @media screen and (min-width: 1080px) {
   .restaurant-name-container {
-    padding: 4vw;
     height: 4vw;
-    /*order: 1;*/
+    margin-left: 2vw;
+    margin-top: 2vw;
     width: 100%;
   }
   .restaurant-name-container > * {
-    height: 2vw;
-    font-size: 2vw;
-    line-height: 2vw;
+    height: 3vw;
+    font-size: 3vw;
+    line-height: 3vw;
   }
 }
 .restaurant-name-container__heart-container {
@@ -1007,17 +1062,21 @@ The loadscreen disappears after 3 seconds on a short fade out effect obtained by
 .restaurant-name-container__heart-container i {
   position: absolute;
   display: block;
-  top: 2vw;
-  right: 8vw;
+  top: 0vw;
+  right: 12vw;
   z-index: 99;
+  font-size: 8vw;
+  line-height: 8vw;
 }
 @media screen and (min-width: 1080px) {
   .restaurant-name-container__heart-container i {
     position: absolute;
     display: block;
     top: 0vw;
-    right: 8vw;
-    z-index: 50;
+    right: 12vw;
+    z-index: 99;
+    font-size: 2vw;
+    line-height: 2vw;
   }
 }
 .restaurant-name-container__heart-container i.far {

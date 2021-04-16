@@ -104,7 +104,7 @@
   }
 
   @include desktop-only {
-    & > * {
+    & > :not(button) {
       font-size: 0.75 * $font-size-small;
     }
   }
@@ -166,26 +166,27 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 2 * $font-size-regular;
-  height: 2 * $font-size-regular;
+  margin-left: 3 * $font-size-regular;
+  margin-top: 2 * $font-size-regular;
+
   & > * {
-    height: 2 * $font-size-regular;
+    height: 3 * $font-size-regular;
   }
   @include desktop-only {
-    padding: 2 * $font-size-small;
     height: 2 * $font-size-small;
-    /*order: 1;*/
+    margin-left: $font-size-small;
+    margin-top: $font-size-small;
     width: 100%;
     & > * {
-      height: $font-size-small;
-      font-size: $font-size-small;
-      line-height: $font-size-small;
+      height: 1.5 * $font-size-small;
+      font-size: 1.5 * $font-size-small;
+      line-height: 1.5 * $font-size-small;
     }
   }
   &__heart-container {
     position: relative;
     flex: 1;
-    @include heart-filling-effect(2vw, 8vw, 0vw, 8vw);
+    @include heart-filling-effect(0vw, 12vw, 0vw, 12vw);
   }
   h2 {
     font-family: Shrikhand;

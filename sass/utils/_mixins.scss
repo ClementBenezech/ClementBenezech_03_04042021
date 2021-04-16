@@ -88,15 +88,27 @@ The @ content directive allows for custom properties to be specified in the @inc
   margin: $size $size $size 0px;
 }
 
+/*Handles the "heart filling effect", used on both index. html and restaurant pages.
+It places both hearts (full and empty) at the same absolute position relative to the parent container
+Using either $top and $right for mobile, $desk-top and $desk-right for desktop layout.
+On load, the full heart is placed below the empty one with a lower z-index value, with its opacity set to 0. 
+then, when hovering the "above and empty" heart (far), it will trigger an animation setting it's opacity to 0
+at the same time, using the + operator, the sibling "full heart" (fas) will start having its opacity set to 1
+In the end, the empty heart is invisible, and the full one has taken its place.*/
+
 @mixin heart-filling-effect($top, $right, $desk-top, $desk-right) {
   i {
     @include position-absolute-top-right($top, $right, $maximum-index);
+    font-size: 2 * $font-size-regular;
+    line-height: 2 * $font-size-regular;
     @include desktop-only {
       @include position-absolute-top-right(
         $desk-top,
         $desk-right,
-        $medium-index
+        $maximum-index
       );
+      font-size: $font-size-small;
+      line-height: $font-size-small;
     }
 
     &.far {
@@ -137,15 +149,5 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
     animation-delay: #{2 + 0.25 * $item}s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
-  }
-}
-
-/*makes menu category appear one after another*/
-@mixin course-category-fade-in($item) {
-  &:nth-child(#{$item}) {
-    animation-name: fade-in-grow;
-    animation-duration: 1s;
-    animation-delay: #{2 + 0.25 * $item}s;
-    animation-fill-mode: forwards;
   }
 }

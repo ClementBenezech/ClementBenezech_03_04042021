@@ -129,3 +129,38 @@
     margin-top: 0;
   }
 }
+
+@keyframes shake-explore {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: -0.2vw;
+  }
+  100% {
+    margin-left: 0.2vw;
+  }
+}
+
+@keyframes shake-order {
+  0% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+  25% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(2deg);
+  }
+  50% {
+    /*margin-left: 35%;*/
+    transform: rotate(-0deg);
+  }
+  75% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(-2deg);
+  }
+  100% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+}
