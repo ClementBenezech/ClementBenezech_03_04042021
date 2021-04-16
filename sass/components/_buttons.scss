@@ -47,6 +47,7 @@
   &--restaurant-page {
     padding: $font-size-regular 3 * $font-size-regular;
     @include desktop-only {
+      padding: 0;
       width: 30%;
       margin-left: 35%;
       font-size: 2 * $font-size-small;
