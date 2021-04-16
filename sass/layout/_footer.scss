@@ -4,7 +4,7 @@
   @include desktop-only {
     @include font-size-margin($font-size-small, 0 * $font-size-small);
     @include display-flex-column-center;
-    padding: $font-size_small 0 1 * $font-size_regular 0;
+    padding: 3 * $font-size_small 0 3 * $font-size_small 0;
     flex-direction: row;
     justify-content: space-evenly;
     z-index: $maximum-index;

@@ -16,6 +16,7 @@
   @include display-flex-row-center;
   width: 100%;
   align-items: center;
+  padding: $font-size-small 0;
   /*Linking the locale-container background color with the main background color, given the fact that it is a different shade of the same color
   (well, if you consider grey to be a color) If we were to change the value of background color to adopt a new theme, 
   only one value would have to be changed in the _variable.scss file. Alternatively, I could also have created another color derived from this one 
@@ -32,7 +33,7 @@
     margin: $font-size-regular 0 $font-size-regular 0; /*this will ensure vertical alignment of the input title in the middle of the container*/
     font-size: $font-size-regular;
     @include desktop-only {
-      @include font-size-margin($font-size-small, 0.1 * $font-size-small);
+      @include font-size-margin($font-size-small, 0 * $font-size-small);
     }
   }
   & input {

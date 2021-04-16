@@ -5,7 +5,9 @@
   border-radius: $font-size-regular * 2;
   color: $color-button-text;
   margin-top: $font-size-regular;
+  box-shadow: 0 0 0.5 * $font-size-regular darken($color-background-primary, 20);
   @include desktop-only {
+    box-shadow: none;
     height: 100%;
     /*padding: 0.1 * $font-size-small;*/
     padding: 0;
@@ -28,8 +30,11 @@
       lighten($color-secondary, 0),
       lighten($color-primary, 5)
     );
+    box-shadow: 0 0 0.5 * $font-size-regular
+      darken($color-background-primary, 30);
     text-shadow: 0 0 0.5 * $font-size-small $color-background-light;
     @include desktop-only {
+      box-shadow: none;
       background: transparent;
       font-family: Shrikhand;
       text-shadow: black 0.1rem 0.1rem 0.1rem, black -0.1rem -0.1rem 0.1rem,
@@ -40,10 +45,12 @@
     }
   }
   &--restaurant-page {
+    padding: $font-size-regular 3 * $font-size-regular;
     @include desktop-only {
       width: 30%;
       margin-left: 35%;
       font-size: 2 * $font-size-small;
+      color: saturate($color-tertiary, 90%);
       &:hover {
         animation-name: shake-order;
         animation-duration: 0.2s;
