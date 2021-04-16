@@ -17,11 +17,7 @@
   width: 100%;
   align-items: center;
   padding: $font-size-small 0;
-  /*Linking the locale-container background color with the main background color, given the fact that it is a different shade of the same color
-  (well, if you consider grey to be a color) If we were to change the value of background color to adopt a new theme, 
-  only one value would have to be changed in the _variable.scss file. Alternatively, I could also have created another color derived from this one 
-  in the _variables.scss file, something like $locale-background color : darken(background-color-primary, 10%).
-  EDIT: Rather than trying to implement an inset box-shadow css trick to have the top shadow, I defined the background of the section as a linear gradient
+  /*EDIT: Rather than trying to implement an inset box-shadow css trick to have the top shadow, I defined the background of the section as a linear gradient
   The gradient starts back on top (default, adding a 'deg' value could statrt it from the side or bottom -note for later-), then after 10% of the height,
   it displays the base background color, still darkened to adresss the specific looks of this box */
   background: linear-gradient(
@@ -30,14 +26,17 @@
   );
   & input,
   i {
-    margin: $font-size-regular 0 $font-size-regular 0; /*this will ensure vertical alignment of the input title in the middle of the container*/
+    margin: 0;
     font-size: $font-size-regular;
     @include desktop-only {
       @include font-size-margin($font-size-small, 0 * $font-size-small);
     }
   }
   & input {
-    width: auto;
+    width: 30vw;
+    @include desktop-only {
+      width: 15vw;
+    }
   }
 }
 
