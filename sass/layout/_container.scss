@@ -44,13 +44,18 @@
   @include display-flex-column-center;
   @include section-padding-standard($font-size_regular);
   background-color: $color-background-primary;
+  z-index: $medium-index;
   @include desktop-only {
-    @include section-padding-standard($font-size-small);
+    /*@include section-padding-standard($font-size-small);*/
+    padding: 0;
     width: 100%;
-    height: 30vw;
+    height: 0vw;
+    animation: 3s ease-in-out 4s forwards heighten-div;
     background-image: url("../../public/images/restaurants/oiseauBlancParis.png");
     background-repeat: no-repeat;
     background-size: 100vw;
+    z-index: $minimum-index;
+    overflow: hidden;
   }
 
   h2 {
@@ -80,20 +85,31 @@
   @include desktop-only {
     @include section-padding-standard($font-size-small);
     @include display-flex-row-wrap-center;
-
     padding: 0px;
-    margin: $font-size-extra-small;
+    margin: $font-size-small 0;
+    justify-content: flex-end;
+    background-color: $color-secondary;
+    flex-wrap: nowrap;
+    width: 100%;
+    transform: skewX(-20deg);
   }
   width: 100%;
   &__step-container {
     @include display-flex-row-center;
     width: 90vw;
+    z-index: $maximum-index;
     @include desktop-only {
-      width: 30vw;
-      @include font-size-margin($font-size-small, 0 * $font-size-small);
+      /*box-shadow: 0 0.5vw 0.5vw darken($color-background-primary, 30%);*/
+      box-shadow: none;
+      border-radius: 0;
+      width: 33%;
+
+      height: 1.5 * $font-size-small;
+
+      margin: 0;
       padding: 0;
+      @include font-size-margin($font-size-small, 0 * $font-size-small);
       & > * {
-        font-size: $font-size-small;
         padding: 0vw;
       }
     }
@@ -105,38 +121,46 @@
       1.6 * $font-size-regular,
       1.5 * $font-size-regular
     );
+    border-radius: 50%;
     background-color: $color-primary;
     z-index: $medium-index; /*so it displays above  step_content*/
     color: $color-text-light;
     @include desktop-only {
       @include step-number-dimension(
-        5.2 * $font-size-small,
-        1.4 * $font-size-small
+        3 * $font-size-small,
+        1.5 * $font-size-small
       );
-      margin-top: 0.65 * $font-size-small;
+      border-radius: 0;
+      margin-top: 0;
+      background-color: $color-secondary;
     }
   }
   &__step-content {
     @include display-flex-row-start-padding-left;
+
     flex: 95vw;
     background-color: $color-background-primary;
     margin-left: -0.75 * $font-size-regular; /*so it goes below the number*/
     border-radius: $font-size-small;
     color: darken($color-background-primary, 30%);
-    box-shadow: 0 0.5vw 0.5vw darken($color-background-primary, 30%);
+    /*box-shadow: 0 0.5vw 0.5vw darken($color-background-primary, 30%);*/
+    box-shadow: none;
     & > * {
       @include step-content-margin($font-size-regular);
     }
 
     @include desktop-only {
       height: 100%;
-      margin-left: -0.75 * $font-size-small;
+      border-radius: 0;
+      /*transform: skewX(-10deg);*/
+      margin-left: 0;
       padding-left: 1.5 * $font-size-small;
+      padding-top: 0.5vw;
       width: 3.5vw;
       font-size: 0.85 * $font-size-small;
       align-content: center;
       & > * {
-        @include step-content-margin($font-size-small);
+        @include step-content-margin(0);
       }
     }
 
@@ -155,7 +179,8 @@
     i {
       margin-top: 4.5vw;
       @include desktop-only {
-        margin-top: 2.1vw;
+        margin-top: 0.2vw;
+        margin-right: 1vw;
       }
     }
   }
@@ -185,8 +210,14 @@
   @include desktop-only {
     @include display-flex-row-wrap-center;
     width: 100%;
-    justify-content: space-around;
-    @include section-padding-standard($font-size-extra-small);
+    height: 15vw;
+    margin: 0;
+    animation: 1s ease-in-out 3s forwards padding-top-to-0;
+    padding: 15vw 0 0 0;
+    /*justify-content: space-evenly;*/
+
+    box-shadow: 0 1vw 1vw darken($color-background-primary, 20%);
+    overflow: hidden;
   }
 
   &__result-container {
@@ -195,9 +226,15 @@
     flex-direction: column;
     margin: $font-size-regular;
     width: 90vw;
+    @include desktop-only {
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: 0 -1vw 1vw darken($color-background-primary, 20%);
+    }
     & > * {
       font-size: $font-size-regular;
-      border-radius: $font-size-regular $font-size-regular 0px 0px;
+      border-radius: 0;
     }
 
     a {
@@ -212,10 +249,11 @@
 
     @include desktop-only {
       margin: 0;
-      width: 22vw;
+      width: 25vw;
+
       & > * {
         font-size: $font-size-small;
-        border-radius: $font-size-small $font-size-small 0px 0px;
+        border-radius: 0;
       }
     }
   }
@@ -240,7 +278,8 @@
     @include desktop-only {
       height: 5vw;
       padding-left: $font-size-small;
-      border-radius: 0px 0px $font-size-small $font-size-small;
+      border-radius: 0;
+      box-shadow: none;
       & > * {
         font-size: 0.7 * $font-size-small;
       }
