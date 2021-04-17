@@ -26,6 +26,9 @@ body {
   overflow-x: hidden;
   margin: 0px;
   padding: 0px;
+  @include desktop-only {
+    background-color: darken($color-background-primary, 80%);
+  }
 }
 
 button {
