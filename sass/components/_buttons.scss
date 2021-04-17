@@ -1,6 +1,6 @@
 .btn-explore {
   background: linear-gradient(150deg, $color-secondary, $color-primary);
-  padding: $font-size-regular; /*this will ensure vertical alignment of the h2 title in the middle of the container, and also harmonious side padding*/
+  padding: $font-size-regular 2 * $font-size-regular; /*this will ensure vertical alignment of the h2 title in the middle of the container, and also harmonious side padding*/
   font-size: $font-size-regular;
   border-radius: $font-size-regular * 2;
   color: $color-button-text;
@@ -9,7 +9,6 @@
   @include desktop-only {
     box-shadow: none;
     height: 100%;
-    /*padding: 0.1 * $font-size-small;*/
     padding: 0;
     margin: 0;
     font-size: 1.5 * $font-size-small;
@@ -45,8 +44,9 @@
     }
   }
   &--restaurant-page {
-    padding: $font-size-regular 3 * $font-size-regular;
+    margin: $font-size-regular 0;
     @include desktop-only {
+      margin: 0;
       padding: 0;
       width: 30%;
       margin-left: 35%;

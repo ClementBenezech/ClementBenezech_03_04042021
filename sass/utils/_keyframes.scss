@@ -172,7 +172,7 @@
   20% {
     height: 8vw;
   }
-  40% {
+  80% {
     height: 8vw;
   }
   100% {
@@ -181,7 +181,19 @@
 }
 
 @keyframes padding-top-to-0 {
-  to {
+  0% {
+    height: 0vw;
     padding-top: 0vw;
+    margin-bottom: 28vw;
+  }
+  40% {
+    height: 28vw;
+    padding-top: 28vw;
+    margin-bottom: 0vw;
+  }
+  100% {
+    padding-top: 0vw;
+    height: 28vw;
+    margin-bottom: 0vw;
   }
 }
