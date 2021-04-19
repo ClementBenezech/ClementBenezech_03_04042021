@@ -1190,7 +1190,7 @@ h1 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 6vw 0 6vw 0;
+    padding: 2vw 0 2vw 0;
     -ms-flex-direction: row;
         flex-direction: row;
     -webkit-box-pack: space-evenly;
